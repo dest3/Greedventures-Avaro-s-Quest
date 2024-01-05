@@ -12,7 +12,7 @@ func update(delta):
 		return STATES.FALL
 	if Player.jump_input_actuation:
 		return STATES.JUMP
-	if Player.is_on_floor():
+	if Player.is_on_floor() and Player.get_next_to_wall() == null:
 		return STATES.IDLE
 	return null
 

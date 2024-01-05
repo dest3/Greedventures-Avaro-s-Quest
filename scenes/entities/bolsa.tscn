@@ -1,26 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://olundqsa63tu"]
+[gd_scene load_steps=6 format=3 uid="uid://olundqsa63tu"]
 
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_65cc1"]
 [ext_resource type="Script" path="res://scripts/bolsa.gd" id="1_ive7j"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3idny"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grrj2"]
-radius = 7.0
-height = 14.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_m6484"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qtnlk"]
 
 [node name="bolsa" type="RigidBody2D"]
-position = Vector2(4, -2)
 physics_material_override = SubResource("PhysicsMaterial_3idny")
 script = ExtResource("1_ive7j")
 metadata/_edit_group_ = true
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0.560784, 0.509804, 0, 1)
-position = Vector2(-4, -6)
 scale = Vector2(0.09375, 0.125)
 texture = ExtResource("1_65cc1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-4, -6)
-shape = SubResource("CapsuleShape2D_grrj2")
+shape = SubResource("CircleShape2D_m6484")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_qtnlk")

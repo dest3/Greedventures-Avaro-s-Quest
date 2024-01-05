@@ -12,6 +12,10 @@ func update(delta):
 		return STATES.FALL
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
+	if Player.climb_input and Player.get_next_to_wall() != null:
+		return STATES.SLIDE
+	if Player.velocity.y < 0 and Player.get_next_to_wall() != null:
+		return STATES.JUMP
 	return null
 
 #al entrar al estado resetea el dash

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=12 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="2_3ygal"]
@@ -12,7 +12,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1r3j7"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xk7g2"]
+size = Vector2(24, 24)
+
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 5
 script = ExtResource("1_bvkld")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -46,25 +50,33 @@ offset_top = -34.0
 offset_right = 22.0
 offset_bottom = -11.0
 text = "STATE"
+metadata/_edit_use_anchors_ = true
 
 [node name="Raycasts" type="Node2D" parent="."]
 
 [node name="TopRight" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, -10)
 target_position = Vector2(13, 0)
-collision_mask = 2
+collision_mask = 6
 
 [node name="ButtomRight" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, 10)
 target_position = Vector2(13, 0)
-collision_mask = 2
+collision_mask = 6
 
 [node name="TopLeft" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, -10)
 target_position = Vector2(-13, 0)
-collision_mask = 2
+collision_mask = 6
 
 [node name="ButtomLeft" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, 10)
 target_position = Vector2(-13, 0)
-collision_mask = 2
+collision_mask = 6
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_xk7g2")
+debug_color = Color(0.647059, 0.517647, 0.184314, 0.419608)

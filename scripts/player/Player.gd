@@ -17,6 +17,7 @@ var last_direction = Vector2.RIGHT
 
 #mecanicas
 var can_dash = true
+var can_grab = true
 
 #estados
 var current_state = null
@@ -99,8 +100,11 @@ func player_input():
 		dash_input = true
 	else: 
 		dash_input = false
-
-
+	#agarrar
+	if Input.is_action_just_pressed("grab"):
+		can_grab = false
+	else: 
+		can_grab = true
 
 
 

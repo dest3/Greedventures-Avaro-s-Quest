@@ -1,11 +1,10 @@
 extends RigidBody2D
+#bolsa de avaro, aca van todos sus estados, para ser accedidos 
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_area_2d_body_entered(body):
+	##aca todo lo que queremos que pase cuando el personaje se acerque a la bolsa
+	var Player = body#guarda el body 
+	if body.name == "Player": #si es el nodo jugador entonces 
+		#queue_free()
+		pass
+	

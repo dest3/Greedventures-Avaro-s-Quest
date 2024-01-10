@@ -1,10 +1,11 @@
 extends RigidBody2D
 #bolsa de avaro, aca van todos sus estados, para ser accedidos 
 
-func _on_area_2d_body_entered(body):
-	##aca todo lo que queremos que pase cuando el personaje se acerque a la bolsa
-	var Player = body#guarda el body 
-	if body.name == "Player": #si es el nodo jugador entonces 
-		#queue_free()
-		pass
-	
+@onready var interaction_area: interactionArea = $InteractionArea
+@onready var Player = get_tree().get_first_node_in_group("player")
+
+func _ready():
+	interaction_area.interact = Callable(self, "on_interact")
+
+func on_interact():
+	queue_free()

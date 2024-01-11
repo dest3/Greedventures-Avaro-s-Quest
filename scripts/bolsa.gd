@@ -4,6 +4,8 @@ extends RigidBody2D
 @onready var interaction_area: interactionArea = $InteractionArea
 @onready var Player = get_tree().get_first_node_in_group("player")
 
+var peso = 0
+
 func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
 

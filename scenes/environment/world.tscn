@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkx3b8er51odi"]
+[gd_scene load_steps=5 format=3 uid="uid://dkx3b8er51odi"]
 
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_7y60y"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_ob162"]
-[ext_resource type="Script" path="res://addons/ropesim/Rope.gd" id="3_ohmwe"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="4_giyvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmbfr"]
@@ -72,16 +71,8 @@ scale = Vector2(1.88281, 0.0625)
 texture = ExtResource("1_7y60y")
 
 [node name="Player" parent="." instance=ExtResource("2_ob162")]
-position = Vector2(102, -27)
-
-[node name="Rope" type="Node2D" parent="Player"]
-script = ExtResource("3_ohmwe")
-rope_length = 50.0
-gravity = 10.0
-num_constraint_iterations = 5
-line_width = 1.0
+position = Vector2(123, -56)
 
 [node name="bolsa" parent="." instance=ExtResource("4_giyvo")]
-position = Vector2(20, -2)
-collision_layer = 4
-gravity_scale = 0.0
+position = Vector2(181, -43)
+max_contacts_reported = 2

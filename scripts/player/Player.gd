@@ -9,10 +9,11 @@ var jump_input = false
 var jump_input_actuation = false
 var climb_input = false 
 var dash_input = false
-
+var interact_input = false
 #player movement
 @export var SPEED = 70.0
 @export var JUMP_VELOCITY = -400.0
+@export var PUSH_FORCE = 100
 var last_direction = Vector2.RIGHT
 
 #mecanicas
@@ -40,6 +41,12 @@ func _physics_process(delta):
 	change_state(current_state.update(delta))
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
+	
+	#aca aplico la fuerza de empuje del personaje
+	for i in get_slide_collision_count():#obtiene todas las coliciones al moverse
+		var c = get_slide_collision(i)#guarda la colision en c
+		if c.get_collider() is RigidBody2D:#si c es un rigidbody
+			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
 
 #agrega la gravedad si no esta en el suelo
 func gravity(delta):
@@ -100,11 +107,12 @@ func player_input():
 		dash_input = true
 	else: 
 		dash_input = false
+	
 	#agarrar
-	if Input.is_action_just_pressed("interact"):
-		can_interact = false
+	if Input.is_action_just_pressed("interact") and can_interact:
+		interact_input = false
 	else: 
-		can_interact = true
+		interact_input = true
 
 
 

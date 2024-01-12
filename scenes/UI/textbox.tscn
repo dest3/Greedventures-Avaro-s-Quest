@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://ce2tf2pr6wsje"]
+
+[ext_resource type="Texture2D" uid="uid://bchm6nvipiphq" path="res://assets/img/cuadro de dialogo test.png" id="1_6y54d"]
+[ext_resource type="Script" path="res://scenes/UI/text box/textbox.gd" id="1_hw48w"]
+
+[node name="Textbox" type="MarginContainer"]
+script = ExtResource("1_hw48w")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_6y54d")
+region_rect = Rect2(0, 0, 48, 48)
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+vertical_alignment = 1
+
+[node name="leterDisplayTimer" type="Timer" parent="."]
+one_shot = true

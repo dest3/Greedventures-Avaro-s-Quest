@@ -7,9 +7,9 @@ var interact: Callable = func():
 	pass
 
 #agrega el area a la lista de areas
-func _on_body_entered(body):
+func _on_body_entered(_body):
 	InteractionManager.register_area(self)
 
 #quita el area de la lista
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	InteractionManager.unregister_area(self)

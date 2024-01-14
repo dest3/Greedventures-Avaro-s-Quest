@@ -17,6 +17,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://interactions/interactionManager.tscn"
+DialogManager="*res://scenes/UI/dialogManager.gd"
 
 [editor_plugins]
 
@@ -27,6 +28,7 @@ enabled=PackedStringArray("res://addons/ropesim/plugin.cfg")
 folder_colors={
 "res://addons/": "gray",
 "res://assets/": "purple",
+"res://interactions/": "orange",
 "res://scenes/": "blue",
 "res://scripts/": "green"
 }

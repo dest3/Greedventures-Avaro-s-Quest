@@ -7,3 +7,4 @@ extends Node
 @onready var DASH = $DASH
 @onready var SLIDE = $SLIDE
 @onready var GRAB = $GRAB
+@onready var DEAD = $DEAD

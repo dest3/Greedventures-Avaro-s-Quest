@@ -8,6 +8,8 @@ var grabing = true
 func update(delta):
 	#aca se indica de que fomra sale del estado 
 	#(si este escript se ejecuta es porque ya esta en el estado) 
+	if Player.jump_input_actuation == true:
+		return STATES.JUMP
 	return null
 
 func enter_state():

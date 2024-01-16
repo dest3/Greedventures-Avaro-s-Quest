@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cphwokdfge534"]
+
+[ext_resource type="Script" path="res://scripts/player/states/DEAD.gd" id="1_v4p5d"]
+
+[node name="DEAD" type="Node"]
+script = ExtResource("1_v4p5d")
+
+[node name="DashDuration" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DashDuration" to="." method="_on_timer_timeout"]

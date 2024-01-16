@@ -4,7 +4,7 @@ extends "res://scripts/player/state.gd"
 @onready var CoyoteTimer = $CoyoteTimer
 @export var coyote_duration = .2 #tiempo del coyote time
 var can_jump = true
-
+var duble_jump = 1
 #desde FALL puede entrar a 
 #IDLE, DASH, SLIDE, JUMP
 func update(delta):
@@ -18,6 +18,9 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
+	#if Player.velocity.y > 0 and duble_jump <= 1 and Player.jump_input_actuation:
+		#return STATES.JUMP
+	
 	return null
 
 func enter_state():

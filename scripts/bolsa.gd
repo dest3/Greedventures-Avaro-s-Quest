@@ -1,6 +1,5 @@
 extends RigidBody2D
 #bolsa de avaro, aca van todos sus estados, para ser accedidos 
-@onready var STATES = "res://scripts/player/states/STATES.gd"
 
 const lines: Array[String]= [
 	"hola este es el primer test del sistemas de dialogo",
@@ -18,6 +17,5 @@ func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
 
 func on_interact():
-	#DialogManager.start_dialog(global_position, lines)
-	return STATES.GRAB
+	DialogManager.start_dialog(global_position, lines)
 	

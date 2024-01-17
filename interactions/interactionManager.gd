@@ -1,7 +1,7 @@
 extends Node2D
 
 #referencia a los nodos plauer y label
-@onready var Player = get_tree().get_first_node_in_group("player")
+var Player # El player se autoregistra aqui. Se puede definir un setter si se quieren hacer chequeos extra
 @onready var label = $Label
 
 
@@ -22,7 +22,8 @@ func unregister_area(area : interactionArea):
 
 #esta funcion controla si hay areas y muestra el label correspondiente
 func _process(_delta):
-	if active_areas.size() > 0 && Player.can_interact: #si la lista es mayor a 0
+	# Agrege el chequeo && Player ya que process si o si va a empezar a llamarse antes que el player este registrado
+	if active_areas.size() > 0 && Player && Player.can_interact: #si la lista es mayor a 0
 		active_areas.sort_custom(_sort_by_distance_to_player)# devuelve el area mas cercana al player con sort custom
 		label.text = base_text + active_areas[0].action_name #asigna el nombre correcto al label
 		label.global_position = active_areas[0].global_position # ubica el label en pantalla encima del objeto a interactuar 

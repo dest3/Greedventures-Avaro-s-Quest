@@ -30,6 +30,10 @@ var prev_state = null
 
 #esta funcion recorre todos los estados de STATES, los almacena y hace una referencia a la variable Player del script "state"
 func _ready():
+	# registramos el player en el InteractionManager. Esto se podria hacer en _init() o _enter_tree()
+	# pero en ready es cuando ya todos los subnodos del player estan listos y accesibles
+	InteractionManager.Player = self
+
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Player = self

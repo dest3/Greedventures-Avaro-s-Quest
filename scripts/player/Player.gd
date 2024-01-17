@@ -43,6 +43,7 @@ func _ready():
 		state.Player = self
 	prev_state = STATES.IDLE
 	current_state = STATES.IDLE
+	
 
 func _physics_process(delta):
 	player_input()
@@ -55,7 +56,19 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)#guarda la colision en c
 		if c.get_collider() is RigidBody2D:#si c es un rigidbody
 			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
-
+			
+			
+	"""if Input.is_action_just_pressed("Grab") :# esto es funcional , falta pasarlo al state agarrar
+			grab_input = true
+			bolsa.freeze = true 
+			bolsa.sleeping=  true
+		
+	if Input.is_action_pressed("Drop"):#el drop funciona
+		grab_input = false
+		bolsa.freeze = false
+		bolsa.sleeping=  false
+	if grab_input:
+		bolsa.global_position = $Marker.global_position"""
 #agrega la gravedad si no esta en el suelo
 func gravity(delta):
 	if not is_on_floor():
@@ -125,15 +138,14 @@ func player_input():
 		interact_input = false
 	else: 
 		interact_input = true
+	
+	#grab
 	if Input.is_action_just_pressed("Grab"):
-		#bolsa.global_position = $Marker.global_position
-		grab_input =true
-		#bolsa.freeze = true 
-		#bolsa.sleeping=  true
-	else:
-		grab_input =  false
-		#bolsa.freeze = false
-		#bolsa.sleeping=  false
+		grab_input = true 
+	if Input.is_action_just_pressed("Drop"):
+		grab_input = false
+		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
+		bolsa.sleeping=  false
 
 
 

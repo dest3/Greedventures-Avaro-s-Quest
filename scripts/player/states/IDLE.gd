@@ -1,5 +1,5 @@
 extends "res://scripts/player/state.gd"
-
+@onready var Bolsa = get_tree().get_first_node_in_group("bolsa")
 #desde el estado de IDLE el jugador puede ingresar a 
 #MOVE,DASH,JUMP,FALL
 func update(delta):
@@ -18,6 +18,7 @@ func update(delta):
 		return STATES.JUMP
 	if Player.grab_input :
 		return STATES.AGARRAR
+	
 	return null
 
 #al entrar al estado resetea el dash

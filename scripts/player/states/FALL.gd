@@ -26,6 +26,7 @@ func update(delta):
 		counter_jump += 1
 		return STATES.JUMP
 	
+	
 
 	return null
 	

@@ -8,6 +8,9 @@ func update(delta):
 	#aca se indica de que fomra sale del estado 
 	#(si este escript se ejecuta es porque ya esta en el estado) 
 	Player.gravity(delta)
+	player_movement()
+	if Player.velocity.x == 0:
+		return STATES.IDLE
 	if Player.movement_input.x != 0:
 		return STATES.MOVE
 	if Player.jump_input_actuation == true:
@@ -23,25 +26,20 @@ func update(delta):
 	
 	return null
 func enter_state():
-	"""if Input.is_action_just_pressed("Grab"):
-		Bolsa.global_position = Player.pi.global_position
-	
-		Bolsa.freeze = true 
-		Bolsa.sleeping=  true
-	else:
-	
+	#if de jony 
+	if Player.grab_input:
+			Bolsa.global_position = Player.pi.global_position
+			Bolsa.freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
+			Bolsa.sleeping=  true
+
+	if not Player.grab_input :#el drop funciona pero en player , no se porque no aqui
+		
 		Bolsa.freeze = false
-		Bolsa.sleeping=  false"""
+		Bolsa.sleeping=  false
 	
-	if Input.is_action_just_pressed("Grab"):
-		Bolsa.global_position =  Player.pi.global_position
-		Bolsa.freeze = true 
-		Bolsa.sleeping=  true
-		print("agarrado")
-	if Player.grab_input == false:
-		Bolsa.freeze = false 
-		Bolsa.sleeping=  true
+	
 func exit_state():
+	
 	pass
 	#aca se quitan los "trades de la bolsa" cuando la suelta
 

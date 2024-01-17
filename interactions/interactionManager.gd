@@ -5,7 +5,7 @@ extends Node2D
 @onready var label = $Label
 
 
-const base_text = "[E] to " #texto inicial que se muestra cuando se entra a un area de interaccion 
+const base_text = "[K] to " #texto inicial que se muestra cuando se entra a un area de interaccion 
 
 var active_areas = [] #esta variable va a guardar todas las areas con las que se puede interactuar
 var can_interact = true #si puede o no interactuar 
@@ -52,7 +52,7 @@ func _input(event):
 			await active_areas[0].interact.call()
 			
 			can_interact = true
-
+	
 
 
 	

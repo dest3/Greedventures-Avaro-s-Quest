@@ -74,5 +74,3 @@ texture = ExtResource("1_7y60y")
 position = Vector2(123, -56)
 
 [node name="bolsa" parent="." instance=ExtResource("4_giyvo")]
-position = Vector2(181, -43)
-max_contacts_reported = 2

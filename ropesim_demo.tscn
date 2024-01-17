@@ -11,12 +11,14 @@
 [node name="RopeHandle" type="Marker2D" parent="."]
 position = Vector2(161, 15)
 script = ExtResource("1_3v13b")
+enable = false
 rope_path = NodePath("../Rope")
 rope_position = 0.62
 
 [node name="RopeAnchor" type="Marker2D" parent="."]
 position = Vector2(100.088, 48.0186)
 script = ExtResource("2_60osf")
+enable = false
 rope_path = NodePath("../Rope")
 rope_position = 0.25
 
@@ -28,6 +30,7 @@ texture = ExtResource("3_t3x7v")
 [node name="RopeAnchor2" type="Marker2D" parent="."]
 position = Vector2(161.006, 95.2997)
 script = ExtResource("2_60osf")
+enable = false
 rope_path = NodePath("../Rope")
 
 [node name="Icon" type="Sprite2D" parent="RopeAnchor2"]
@@ -37,7 +40,7 @@ texture = ExtResource("3_t3x7v")
 
 [node name="Rope" type="Node2D" parent="."]
 texture_repeat = 2
-position = Vector2(51, 42)
+position = Vector2(275, 72)
 script = ExtResource("4_ytdbs")
 num_segments = 20
 rope_length = 200.0
@@ -52,3 +55,4 @@ points = PackedVector2Array(0, 0, 0, 10, 0, 20, 0, 30, 0, 40, 0, 50, 0, 60, 0, 7
 texture = ExtResource("3_t3x7v")
 texture_mode = 1
 script = ExtResource("5_8a6rj")
+auto_update = false

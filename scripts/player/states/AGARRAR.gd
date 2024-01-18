@@ -32,7 +32,7 @@ func enter_state():
 			Bolsa.freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
 			Bolsa.sleeping=  true
 
-	if not Player.grab_input :#el drop funciona pero en player , no se porque no aqui
+	if Player.grab_input :#el drop funciona pero en player , no se porque no aqui
 		
 		Bolsa.freeze = false
 		Bolsa.sleeping=  false

@@ -26,6 +26,7 @@ var can_dash = true
 var can_interact = true
 var can_grab = true
 var can_pick = true
+var can_throw = false
 #estados
 var current_state = null
 var prev_state = null
@@ -34,6 +35,7 @@ var prev_state = null
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts
 @onready var pi = $Marker
+
 
 @onready var bolsa = get_tree().get_first_node_in_group("bolsa")
 #esta funcion recorre todos los estados de STATES, los almacena y hace una referencia a la variable Player del script "state"
@@ -56,19 +58,7 @@ func _physics_process(delta):
 		var c = get_slide_collision(i)#guarda la colision en c
 		if c.get_collider() is RigidBody2D:#si c es un rigidbody
 			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
-			
-			
-	"""if Input.is_action_just_pressed("Grab") :# esto es funcional , falta pasarlo al state agarrar
-			grab_input = true
-			bolsa.freeze = true 
-			bolsa.sleeping=  true
-		
-	if Input.is_action_pressed("Drop"):#el drop funciona
-		grab_input = false
-		bolsa.freeze = false
-		bolsa.sleeping=  false
-	if grab_input:
-		bolsa.global_position = $Marker.global_position"""
+	
 #agrega la gravedad si no esta en el suelo
 func gravity(delta):
 	if not is_on_floor():
@@ -146,9 +136,16 @@ func player_input():
 		grab_input = false
 		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
 		bolsa.sleeping=  false
-
-
-
+	#lanzar (en proceso )
+	#a considerar , aplicar el impulso en base  la direccion del personaje 
+	#que el impulso sea escalable/medible en base a cuanto mantuvo apretado el boton el jugador
+	#linea de prediccion de caida ?
+	if Input.is_action_just_pressed("Launched") and grab_input :#si grab es true ( solo para si esta agarrado)
+		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
+		can_throw = true # se setea en true 
+		if grab_input == false and can_throw :# si se cumple los dos 
+			bolsa.apply_impulse(Vector2(100,-200), Vector2(0,0))
+			
 
 
 

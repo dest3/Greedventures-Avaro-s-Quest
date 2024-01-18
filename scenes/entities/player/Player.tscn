@@ -33,7 +33,7 @@ texture = ExtResource("2_3ygal")
 shape = SubResource("RectangleShape2D_1r3j7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_87rwc")

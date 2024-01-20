@@ -1,10 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crl61uiqjcc2w"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kj1bl"]
-bg_color = Color(0, 0, 0, 0.392157)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yqgy"]
-bg_color = Color(0.6, 0.6, 0.6, 0.392157)
+[ext_resource type="PackedScene" uid="uid://dp2lm1jek0eb5" path="res://scenes/UI/Input setings/input_button.tscn" id="1_evl2a"]
+[ext_resource type="Script" path="res://scenes/UI/Input setings/input_setings.gd" id="1_mjbo2"]
 
 [node name="InputSetings" type="Control"]
 layout_mode = 3
@@ -13,6 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_mjbo2")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -46,33 +44,13 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Button" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList"]
-custom_minimum_size = Vector2(0, 20)
+[node name="InputButton" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("1_evl2a")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxFlat_kj1bl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_6yqgy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6yqgy")
+text = "reset to default
+"
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 3
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Button/MarginContainer"]
-layout_mode = 2
-
-[node name="LabelAction" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Button/MarginContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-vertical_alignment = 1
-
-[node name="LabelInput" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/ActionList/Button/MarginContainer/HBoxContainer"]
-layout_mode = 2
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

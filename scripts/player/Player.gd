@@ -34,12 +34,16 @@ var prev_state = null
 #referencia a nodos
 @onready var STATES = $STATES
 @onready var Raycasts = $Raycasts
-@onready var pi = $Marker
+@onready var pi = $Marker_Grab
+@onready var sprite  = $Sprite2D 
+@onready var Fake_bag = $Fake_bag
 
 
 @onready var bolsa = get_tree().get_first_node_in_group("bolsa")
 #esta funcion recorre todos los estados de STATES, los almacena y hace una referencia a la variable Player del script "state"
 func _ready():
+	sprite.flip_h = false
+	Fake_bag.hide()# la falsa bolsa esta por defecto oculta
 	for state in STATES.get_children():
 		state.STATES = STATES
 		state.Player = self
@@ -131,21 +135,33 @@ func player_input():
 	
 	#grab
 	if Input.is_action_just_pressed("Grab"):
-		grab_input = true 
+		grab_input = true
+		Fake_bag.show()
+		bolsa.hide()
+	#drop
 	if Input.is_action_just_pressed("Drop"):
 		grab_input = false
 		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
 		bolsa.sleeping=  false
+		Fake_bag.hide()
+		bolsa.show()
+		
 	#lanzar (en proceso )
-	#a considerar , aplicar el impulso en base  la direccion del personaje 
-	#que el impulso sea escalable/medible en base a cuanto mantuvo apretado el boton el jugador
-	#linea de prediccion de caida ?
+
 	if Input.is_action_just_pressed("Launched") and grab_input :#si grab es true ( solo para si esta agarrado)
 		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
 		can_throw = true # se setea en true 
-		if grab_input == false and can_throw :# si se cumple los dos 
-			bolsa.apply_impulse(Vector2(100,-200), Vector2(0,0))
+		Fake_bag.hide()
+		bolsa.show()
+		if grab_input == false and can_throw and sprite.flip_h == false :# si se cumple
+			bolsa.apply_impulse(Vector2(250,-250), Vector2(0,0)) #se aplica un impulso al eje x/y
+		if grab_input == false and can_throw and sprite.flip_h == true :
+			bolsa.apply_impulse(Vector2(-250,-250), Vector2(0,0))
 			
+	print(pi.position)
+	
+
+
 
 
 

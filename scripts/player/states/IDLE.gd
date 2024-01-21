@@ -17,7 +17,7 @@ func update(delta):
 	if Player.velocity.y < 0 and Player.get_next_to_wall() != null:
 		return STATES.JUMP
 	if Player.grab_input :
-		return STATES.AGARRAR
+		return STATES.GRAB
 	
 	return null
 

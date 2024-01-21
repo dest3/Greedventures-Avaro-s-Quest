@@ -14,7 +14,7 @@ func update(delta):
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
 	if Player.grab_input :
-		return STATES.AGARRAR
+		return STATES.GRAB
 	
 		
 	

@@ -13,6 +13,7 @@ func update(delta):
 	if Player.climb_input and Player.get_next_to_wall() != null and Player.velocity.y >0:
 		return STATES.SLIDE
 	
+	
 	return null
 
 func enter_state():

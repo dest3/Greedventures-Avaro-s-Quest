@@ -13,10 +13,23 @@ const lines: Array[String]= [
 
 var peso = 0
 var p = self
-
+var is_caught = false
 func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
+	
 
-			
+
 func on_interact():
 	DialogManager.start_dialog(global_position, lines)
+
+
+func _on_area_entered(area):
+	if Player.is_in_group("player"):
+		is_caught = true 
+
+
+
+func _on_area_exited(area):
+	if Player.is_in_group("player"):
+		is_caught = false
+

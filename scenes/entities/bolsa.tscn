@@ -35,3 +35,5 @@ action_name = "grab"
 shape = SubResource("CircleShape2D_ak6u6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_area_exited"]

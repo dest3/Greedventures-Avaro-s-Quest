@@ -134,7 +134,7 @@ func player_input():
 		interact_input = true
 	
 	#grab
-	if Input.is_action_just_pressed("Grab"):
+	if Input.is_action_just_pressed("Grab") and bolsa.is_caught == true  :
 		grab_input = true
 		Fake_bag.show()
 		bolsa.hide()
@@ -146,20 +146,19 @@ func player_input():
 		Fake_bag.hide()
 		bolsa.show()
 		
-	#lanzar (en proceso )
-
+	#lanzar
 	if Input.is_action_just_pressed("Launched") and grab_input :#si grab es true ( solo para si esta agarrado)
 		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
 		can_throw = true # se setea en true 
 		Fake_bag.hide()
 		bolsa.show()
 		if grab_input == false and can_throw and sprite.flip_h == false :# si se cumple
-			bolsa.apply_impulse(Vector2(250,-250), Vector2(0,0)) #se aplica un impulso al eje x/y
+			bolsa.apply_impulse(Vector2(150,-450), Vector2(0,0)) #se aplica un impulso al eje x/y
 		if grab_input == false and can_throw and sprite.flip_h == true :
-			bolsa.apply_impulse(Vector2(-250,-250), Vector2(0,0))
+			bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
 			
-	print(pi.position)
-	
+
+	print(bolsa.is_caught)
 
 
 

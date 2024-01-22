@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://ce2tf2pr6wsje"]
 
-[ext_resource type="Texture2D" uid="uid://bchm6nvipiphq" path="res://assets/img/cuadro de dialogo test.png" id="1_6y54d"]
 [ext_resource type="Script" path="res://scenes/UI/text box/textbox.gd" id="1_hw48w"]
+[ext_resource type="Texture2D" uid="uid://dyhkr2dvror48" path="res://assets/UI/RPG UI/Assets 2(Scale x1)-No-BG.png" id="2_t7b8n"]
 
 [node name="Textbox" type="MarginContainer"]
 script = ExtResource("1_hw48w")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-texture = ExtResource("1_6y54d")
-region_rect = Rect2(0, 0, 48, 48)
-patch_margin_left = 16
-patch_margin_top = 16
-patch_margin_right = 16
-patch_margin_bottom = 16
+texture = ExtResource("2_t7b8n")
+region_rect = Rect2(524.173, 92.2037, 33.5149, 33.5149)
+patch_margin_left = 24
+patch_margin_top = 8
+patch_margin_right = 26
+patch_margin_bottom = 9
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

@@ -15,8 +15,9 @@ var interact_input = false
 var grab_input = false
 var drop_input = false
 
+var prueba = false
 #player movement
-@export var SPEED = 70.0
+@export var SPEED = 100.0
 @export var JUMP_VELOCITY = -400.0
 @export var PUSH_FORCE = 100
 var last_direction = Vector2.RIGHT
@@ -40,6 +41,7 @@ var prev_state = null
 
 
 @onready var bolsa = get_tree().get_first_node_in_group("bolsa")
+
 #esta funcion recorre todos los estados de STATES, los almacena y hace una referencia a la variable Player del script "state"
 func _ready():
 	sprite.flip_h = false
@@ -138,6 +140,10 @@ func player_input():
 		grab_input = true
 		Fake_bag.show()
 		bolsa.hide()
+	#peso de la bolsa 
+	
+	if bolsa.peso == 10 and grab_input == true :
+		SPEED = 100
 	#drop
 	if Input.is_action_just_pressed("Drop"):
 		grab_input = false
@@ -156,9 +162,7 @@ func player_input():
 			bolsa.apply_impulse(Vector2(150,-450), Vector2(0,0)) #se aplica un impulso al eje x/y
 		if grab_input == false and can_throw and sprite.flip_h == true :
 			bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
-			
-
-	print(bolsa.is_caught)
+	
 
 
 

@@ -25,7 +25,7 @@ func update(delta):
 	if Player.jump_input_actuation and counter_jump < max_jump  :
 		counter_jump += 1
 		return STATES.JUMP
-	
+
 	
 
 	return null

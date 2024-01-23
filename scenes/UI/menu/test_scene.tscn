@@ -1,0 +1,194 @@
+[gd_scene load_steps=5 format=3 uid="uid://dstyhj4yj5eao"]
+
+[ext_resource type="Script" path="res://scenes/UI/Input setings/video.gd" id="1_meba4"]
+[ext_resource type="PackedScene" uid="uid://crl61uiqjcc2w" path="res://scenes/UI/Input setings/input_setings.tscn" id="2_68tod"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="2_faean"]
+[ext_resource type="Script" path="res://scripts/menus/audio_menu.gd" id="2_y4o5v"]
+
+[node name="TestScene" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("2_faean")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Setings" type="TabContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="video" type="TabBar" parent="UI/Setings"]
+visible = false
+layout_mode = 2
+script = ExtResource("1_meba4")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Setings/video"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Setings/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="Label" parent="UI/Setings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Full Screen
+"
+
+[node name="Borderless" type="Label" parent="UI/Setings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Borderless"
+
+[node name="Vsync" type="Label" parent="UI/Setings/video/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "vsync"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Setings/video/HBoxContainer"]
+layout_mode = 2
+
+[node name="FullScreen" type="CheckBox" parent="UI/Setings/video/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Borderless" type="CheckBox" parent="UI/Setings/video/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Vsync" type="OptionButton" parent="UI/Setings/video/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+item_count = 4
+selected = 1
+popup/item_0/text = "Disable"
+popup/item_0/id = 0
+popup/item_1/text = "Enable"
+popup/item_1/id = 1
+popup/item_2/text = "Adaptative"
+popup/item_2/id = 2
+popup/item_3/text = "MailBox"
+popup/item_3/id = 3
+
+[node name="volver video" type="Button" parent="UI/Setings/video"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -114.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "volver "
+
+[node name="audio" type="TabBar" parent="UI/Setings"]
+layout_mode = 2
+script = ExtResource("2_y4o5v")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Setings/audio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -6.5
+offset_top = -38.5
+offset_right = 6.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Setings/audio/HBoxContainer"]
+layout_mode = 2
+
+[node name="Master" type="Label" parent="UI/Setings/audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master:"
+
+[node name="Music" type="Label" parent="UI/Setings/audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music:"
+
+[node name="SFX" type="Label" parent="UI/Setings/audio/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX:"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="UI/Setings/audio/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+
+[node name="Master" type="HSlider" parent="UI/Setings/audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="Music" type="HSlider" parent="UI/Setings/audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="SFX" type="HSlider" parent="UI/Setings/audio/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.05
+
+[node name="volver video2" type="Button" parent="UI/Setings/audio"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -114.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "volver "
+
+[node name="controls" type="TabBar" parent="UI/Setings"]
+visible = false
+layout_mode = 2
+
+[node name="InputSetings" parent="UI/Setings/controls" instance=ExtResource("2_68tod")]
+layout_mode = 1
+
+[node name="volver video3" type="Button" parent="UI/Setings/controls"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -161.0
+offset_top = -114.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_mode = 0
+text = "volver "
+
+[connection signal="toggled" from="UI/Setings/video/HBoxContainer/VBoxContainer2/FullScreen" to="UI/Setings/video" method="_on_full_screen_toggled"]
+[connection signal="toggled" from="UI/Setings/video/HBoxContainer/VBoxContainer2/Borderless" to="UI/Setings/video" method="_on_borderless_toggled"]
+[connection signal="item_selected" from="UI/Setings/video/HBoxContainer/VBoxContainer2/Vsync" to="UI/Setings/video" method="_on_vsync_item_selected"]
+[connection signal="pressed" from="UI/Setings/video/volver video" to="." method="_on_volver_video_pressed"]
+[connection signal="value_changed" from="UI/Setings/audio/HBoxContainer/VBoxContainer2/Master" to="UI/Setings/audio" method="_on_master_value_changed"]
+[connection signal="value_changed" from="UI/Setings/audio/HBoxContainer/VBoxContainer2/Music" to="UI/Setings/audio" method="_on_music_value_changed"]
+[connection signal="value_changed" from="UI/Setings/audio/HBoxContainer/VBoxContainer2/SFX" to="UI/Setings/audio" method="_on_sfx_value_changed"]
+[connection signal="pressed" from="UI/Setings/audio/volver video2" to="." method="_on_volver_video_pressed"]
+[connection signal="pressed" from="UI/Setings/controls/volver video3" to="." method="_on_volver_video_pressed"]

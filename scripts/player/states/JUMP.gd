@@ -17,7 +17,6 @@ func update(delta):
 	return null
 
 func enter_state():
-	
 	Player.velocity.y = Player.JUMP_VELOCITY #aplica el salto 
 
 

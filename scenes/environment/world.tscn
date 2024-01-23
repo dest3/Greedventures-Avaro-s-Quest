@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkx3b8er51odi"]
+[gd_scene load_steps=7 format=3 uid="uid://dkx3b8er51odi"]
 
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_7y60y"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_ob162"]
-[ext_resource type="PackedScene" uid="uid://c7bvry66hh7na" path="res://coin.tscn" id="4_1g0bg"]
+[ext_resource type="PackedScene" uid="uid://c7bvry66hh7na" path="res://scenes/entities/collectable/coin.tscn" id="4_1g0bg"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="4_giyvo"]
+[ext_resource type="PackedScene" uid="uid://rdm5r6m1hueh" path="res://menu.tscn" id="5_g48v1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmbfr"]
 size = Vector2(243, 6)
@@ -99,3 +100,5 @@ position = Vector2(71, -7)
 
 [node name="coin8" parent="." instance=ExtResource("4_1g0bg")]
 position = Vector2(38, -6)
+
+[node name="menu" parent="." instance=ExtResource("5_g48v1")]

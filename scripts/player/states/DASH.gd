@@ -8,7 +8,7 @@ var dashing = false #esta dasheando
 @onready var DashDuration_timer = $DashDuration #referencia al nodo timer
 
 #si no esta dasehando entra al estado FALL
-func update(delta):
+func update(_delta):
 	if !dashing:
 		return STATES.FALL
 	return null

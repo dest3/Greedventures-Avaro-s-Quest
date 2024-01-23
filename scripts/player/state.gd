@@ -11,7 +11,7 @@ func enter_state():
 func exit_state():
 	pass
 #esta funcion gestiona que pasa mienstras se esta en ese estado.
-func update(delta):
+func update(_delta):
 	return null
 
 func player_movement():

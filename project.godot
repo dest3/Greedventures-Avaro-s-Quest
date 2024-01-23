@@ -21,7 +21,7 @@ DialogManager="*res://scenes/UI/dialogManager.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ropesim/plugin.cfg")
+enabled=PackedStringArray()
 
 [file_customization]
 

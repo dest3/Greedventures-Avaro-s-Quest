@@ -14,8 +14,7 @@ var dash_input = false
 var interact_input = false
 var grab_input = false
 var drop_input = false
-
-var prueba = false
+var pausado : bool = false
 #player movement
 @export var SPEED = 100.0
 @export var JUMP_VELOCITY = -400.0
@@ -62,7 +61,7 @@ func _physics_process(delta):
 	#aca aplico la fuerza de empuje del personaje
 	for i in get_slide_collision_count():#obtiene todas las coliciones al moverse
 		var c = get_slide_collision(i)#guarda la colision en c
-		if c.get_collider() is RigidBody2D:#si c es un rigidbody
+		if c.get_collider() is RigidBody2D :#si c es un rigidbody
 			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
 	
 #agrega la gravedad si no esta en el suelo
@@ -139,16 +138,18 @@ func player_input():
 	if Input.is_action_just_pressed("Grab") and bolsa.is_caught == true  :
 		grab_input = true
 		Fake_bag.show()
-		bolsa.hide()
+		bolsa.hide() 
 	#peso de la bolsa 
 	
 	if bolsa.peso == 10 and grab_input == true :
 		SPEED = 100
+		
 	#drop
 	if Input.is_action_just_pressed("Drop"):
 		grab_input = false
 		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
 		bolsa.sleeping=  false
+		#bolsa.colision.disabled= false
 		Fake_bag.hide()
 		bolsa.show()
 		
@@ -156,6 +157,7 @@ func player_input():
 	if Input.is_action_just_pressed("Launched") and grab_input :#si grab es true ( solo para si esta agarrado)
 		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
 		can_throw = true # se setea en true 
+		#bolsa.colision.disabled= false
 		Fake_bag.hide()
 		bolsa.show()
 		if grab_input == false and can_throw and sprite.flip_h == false :# si se cumple
@@ -163,7 +165,10 @@ func player_input():
 		if grab_input == false and can_throw and sprite.flip_h == true :
 			bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
 	
-
+	"""if Input.is_action_just_pressed("prueba"):
+		pausado  = not pausado
+		get_tree().paused = pausado"""
+	
 
 
 

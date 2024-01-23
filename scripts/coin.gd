@@ -10,10 +10,19 @@ func _ready():
 	pass
 
 
-func _on_area_entered(area):
+
+func _on_area_entered(_area):
 	if Player.is_in_group("player"):
-		bolsa.peso += peso_moneda
 		sprite.play("pick_up")
 		await sprite.animation_finished
 		queue_free()
 		 # Replace with function body.
+
+
+
+func _on_area_exited(_area):
+	if Player.is_in_group("player"):
+		queue_free() # no se si este est de mas pero me soluciono un bug .. asi que....
+		bolsa.peso += peso_moneda# lo puse aca porque en el entered a veces detectaba doble 
+	
+	pass # Replace with function body.

@@ -18,14 +18,15 @@ func update(delta):
 		return STATES.IDLE
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
-	if Player.get_next_to_wall() != null:
+	if Player.get_next_to_wall() != null :
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
 	if Player.jump_input_actuation and counter_jump < max_jump  :
 		counter_jump += 1
 		return STATES.JUMP
-
+	if Player.grab_input :
+		return STATES.GRAB
 	
 
 	return null

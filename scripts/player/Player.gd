@@ -12,7 +12,18 @@ var dash_input = false
 var interact_input = false
 #player movement
 @export var SPEED = 70.0
-@export var JUMP_VELOCITY = -400.0
+@export var air_jumps_total : int = 1 #cantidad maxima de saltos en el aire
+var air_jumps_current : int = air_jumps_total #cantidad actual
+
+@export var jump_height : float = 30 #alto del salto 
+@export var jump_time_to_peak : float = 0.5 # tiempo que tarda en llegar arriba 
+@export var jump_time_to_descent : float = 0.25 # tiempo que tarda en bajar 
+
+#aca aplica la black magic fukery de las matematicas 
+@onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
+@onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak)) * -1.0
+@onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent)) * -1.0
+
 @export var PUSH_FORCE = 100
 var last_direction = Vector2.RIGHT
 
@@ -55,7 +66,11 @@ func _physics_process(delta):
 #agrega la gravedad si no esta en el suelo
 func gravity(delta):
 	if not is_on_floor():
-		velocity.y += gravity_value * delta
+		velocity.y += get_gravity() * delta
+
+func get_gravity() -> float:
+	return jump_gravity if velocity.y < 0.0 else fall_gravity
+
 
 # esta funcion cambia de estados y actualiza el estado actual del jugador
 #si el input state es distinto de null

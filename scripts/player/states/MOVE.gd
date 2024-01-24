@@ -17,4 +17,5 @@ func update(delta):
 
 
 func enter_state():
+	Player.get_node("AnimationPlayer").play("run")
 	Player.can_dash = true #resetea el dash

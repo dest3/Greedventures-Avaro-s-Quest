@@ -18,8 +18,6 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
-	#if Player.velocity.y > 0 and duble_jump <= 1 and Player.jump_input_actuation:
-		#return STATES.JUMP
 	
 	return null
 

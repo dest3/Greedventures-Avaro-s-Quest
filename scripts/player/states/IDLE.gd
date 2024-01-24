@@ -20,4 +20,5 @@ func update(delta):
 
 #al entrar al estado resetea el dash
 func enter_state():
+	Player.get_node("AnimationPlayer").play("idle") # reproduce idle 
 	Player.can_dash = true

@@ -21,7 +21,10 @@ func _ready():
 	print(self.position)
 
 func _physics_process(_delta):
-	print(peso)
+	print("Peso de la bolsa ",peso)
+	if Player.grab_input == false :
+		
+		pass
 	
 func on_interact():
 	DialogManager.start_dialog(global_position, lines)

@@ -24,3 +24,4 @@ func update(delta):
 #al entrar al estado resetea el dash
 func enter_state():
 	Player.can_dash = true
+	Player.sprite.play("idle")

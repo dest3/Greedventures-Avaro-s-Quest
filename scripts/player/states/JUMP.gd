@@ -3,7 +3,6 @@ extends "res://scripts/player/state.gd"
 #desde el salto puede entrar a 
 #FALL y DASH
 func update(delta):
-	
 	Player.gravity(delta)
 	player_movement()
 	if Player.velocity.y >0: 
@@ -18,5 +17,6 @@ func update(delta):
 
 func enter_state():
 	Player.velocity.y = Player.JUMP_VELOCITY #aplica el salto 
+	Player.sprite.play("jump")
 
 

@@ -15,6 +15,7 @@ func update(_delta):
 
 #cuando entra al estado no puede volver a dashear hasta tocar el suelo
 func enter_state():
+	Player.sprite.play("dash")
 	Player.can_dash = false #no puede volver a dashear
 	dashing = true #esta dasheando
 	DashDuration_timer.start(dash_duration)#activa el timer del dash
@@ -27,7 +28,7 @@ func enter_state():
 
 func exit_state():
 	dashing = false #no puede volver a dashear
-
+	
 func _on_timer_timeout():
 	dashing = false #no puede volver a dashear
 

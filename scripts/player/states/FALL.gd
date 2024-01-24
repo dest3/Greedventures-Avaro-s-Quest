@@ -22,9 +22,11 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
+		
 	if Player.jump_input_actuation and counter_jump < max_jump  :
 		counter_jump += 1
 		return STATES.JUMP
+		
 	if Player.grab_input :
 		return STATES.GRAB
 	
@@ -34,11 +36,13 @@ func update(delta):
 
 func enter_state():
 	#si el estado anterior es IDLE, MOVE o SLIDE puede saltar  
+	Player.sprite.play("fall")
 	if Player.prev_state == STATES.MOVE or Player.prev_state == STATES.SLIDE :
 		can_jump = true
 		CoyoteTimer.start(coyote_duration) #inica el timer
 	else: 
 		can_jump = false
+		
 
 func _on_coyote_timer_timeout():
 	can_jump = false #desactiva el salto cuando se acaba el timer

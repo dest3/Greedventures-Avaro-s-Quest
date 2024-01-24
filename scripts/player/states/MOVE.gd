@@ -21,5 +21,6 @@ func update(delta):
 	return null
 func enter_state():
 	Player.can_dash = true #resetea el dash
+	Player.sprite.play("run")
 
 

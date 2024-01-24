@@ -1,6 +1,6 @@
 extends Node2D
 
-var peso_moneda = 5
+var peso_moneda = 5.5
 @onready var Player = get_tree().get_first_node_in_group("player")
 @onready var bolsa = get_tree().get_first_node_in_group("bolsa")
 @onready var sprite  = $AnimatedSprite2D

@@ -95,26 +95,31 @@ func player_input():
 	movement_input = Vector2.ZERO
 	if Input.is_action_pressed("MoveRight"):
 		movement_input.x += 1
+		
 	if Input.is_action_pressed("MoveLeft"):
 		movement_input.x -= 1
+	
 	if Input.is_action_pressed("MoveUp"):
 		movement_input.y -= 1
 	if Input.is_action_pressed("MoveDown"):
 		movement_input.y += 1
-	
 	# jumps
 	if Input.is_action_pressed("Jump"):
 		jump_input = true
-		
+	
 	else: 
 		jump_input = false
+		
 	
 	if Input.is_action_just_pressed("Jump"):
 		jump_input_actuation = true
+		jump_input = true
+	
 		
 		
 	else: 
 		jump_input_actuation = false
+		
 	
 	#climb
 	if Input.is_action_pressed("Climb"):
@@ -125,9 +130,9 @@ func player_input():
 	#dash
 	if Input.is_action_just_pressed("Dash"):
 		dash_input = true
+
 	else: 
 		dash_input = false
-	
 	#interactuar
 	if Input.is_action_just_pressed("interact") and can_interact:
 		interact_input = false
@@ -140,10 +145,60 @@ func player_input():
 		Fake_bag.show()
 		bolsa.hide() 
 	#peso de la bolsa 
-	
-	if bolsa.peso == 10 and grab_input == true :
+	#ligero problema con el match , si se usan decimales estamos en el horno
+	# porque no entra en la condicion o porque no se usarlo bien 
+	# creo que no lo se usar bien :( 
+	"""match bolsa.peso: 
+		# no se como mierda lo hice pero funciona el match
+		#De 15 a 20 Moderada: reduccion del 5% en la agilidad
+		15:if bolsa.peso >= 15  and grab_input == true :
+			var l = 100
+			var velo = l - (l * 0.05)
+			SPEED = velo
+		#else :SPEED = 100
+		#De 20 a 25 Pesada: reduccion del 10% en la agilidad
+		20:if bolsa.peso >= 20  and grab_input == true :
+			var l = 100
+			var velo = l - (l * 0.10)
+			SPEED = velo
+		#else :SPEED = 100
+		#De 25 a 30 Moderadamente Pesada : reduccion del 20% en la agilidad 
+		30:if bolsa.peso >= 25  and grab_input == true :
+			var l = 100
+			var velo = l - (l * 0.20)
+			SPEED = velo
+		else :SPEED = 100
+		# De 30 a 40 Muy Pesada : reduccion del 50 % en la agilidad
+		40:if bolsa.peso >= 30 and bolsa.peso <= 40  and grab_input == true :
+			var l = 100
+			var velo = l - (l * 0.50)
+			SPEED = velo
+		else :SPEED = 100
+		_:if grab_input == false:
+			SPEED = 100"""
+			
+			
+		#peso de la bolsa / same pero con if
+	#De 15 a 20 Moderada: reduccion del 5% en la agilidad
+	if bolsa.peso >= 15  and grab_input == true :
+		var l = 100
+		var velo = l - (l * 0.05)
+		SPEED = velo
+		#De 20 a 25 Pesada: reduccion del 10% en la agilidad
+		if bolsa.peso >= 20  and grab_input == true :
+			velo = l - (l * 0.10)
+			SPEED = velo
+		#De 25 a 30 Moderadamente Pesada : reduccion del 20% en la agilidad
+		if bolsa.peso >= 25  and grab_input == true :
+			velo = l - (l * 0.20)
+			SPEED = velo
+		# De 30 a 40 Muy Pesada : reduccion del 50 % en la agilidad
+		if bolsa.peso >= 30  and grab_input == true :
+			velo = l - (l * 0.50)
+			SPEED = velo
+	else:
 		SPEED = 100
-		
+	print("Velocidad del jugador " ,SPEED)
 	#drop
 	if Input.is_action_just_pressed("Drop"):
 		grab_input = false
@@ -164,11 +219,7 @@ func player_input():
 			bolsa.apply_impulse(Vector2(150,-450), Vector2(0,0)) #se aplica un impulso al eje x/y
 		if grab_input == false and can_throw and sprite.flip_h == true :
 			bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
-	
-	"""if Input.is_action_just_pressed("prueba"):
-		pausado  = not pausado
-		get_tree().paused = pausado"""
-	
+
 
 
 

@@ -22,7 +22,7 @@ func unregister_area(area : interactionArea):
 
 #esta funcion controla si hay areas y muestra el label correspondiente
 func _process(_delta):
-	if active_areas.size() > 0 && Player.can_interact: #si la lista es mayor a 0
+	if active_areas.size() > 0 &&  Player && Player.can_interact: #si la lista es mayor a 0
 		active_areas.sort_custom(_sort_by_distance_to_player)# devuelve el area mas cercana al player con sort custom
 		label.text = base_text + active_areas[0].action_name #asigna el nombre correcto al label
 		label.global_position = active_areas[0].global_position # ubica el label en pantalla encima del objeto a interactuar 

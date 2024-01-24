@@ -306,12 +306,9 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_mask = 5
+collision_mask = 4
 script = ExtResource("1_bvkld")
 SPEED = 80.0
-
-[node name="Marker_Grab" type="Marker2D" parent="."]
-position = Vector2(-10, 0)
 
 [node name="idle" type="Sprite2D" parent="."]
 visible = false
@@ -341,7 +338,7 @@ frame = 1
 shape = SubResource("RectangleShape2D_1r3j7")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_87rwc")
@@ -399,8 +396,7 @@ position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_xk7g2")
 debug_color = Color(0.647059, 0.517647, 0.184314, 0.419608)
 
-[node name="Fake_bag" type="Sprite2D" parent="."]
-modulate = Color(0.560784, 0.509804, 0, 1)
-position = Vector2(-10, -0.5)
-scale = Vector2(0.078125, 0.0703125)
-texture = ExtResource("2_3ygal")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_n1g7c")
+}

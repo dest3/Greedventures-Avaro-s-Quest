@@ -3,6 +3,7 @@ extends "res://scripts/player/state.gd"
 #desde el salto puede entrar a 
 #FALL y DASH
 func update(delta):
+	
 	Player.gravity(delta)
 	player_movement()
 	if Player.velocity.y >0: 
@@ -11,6 +12,8 @@ func update(delta):
 		return STATES.DASH
 	if Player.climb_input and Player.get_next_to_wall() != null and Player.velocity.y >0:
 		return STATES.SLIDE
+
+	
 	print(Player.air_jumps_current)
 	return null
 

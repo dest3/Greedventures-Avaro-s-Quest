@@ -1,5 +1,5 @@
 extends "res://scripts/player/state.gd"
-
+@onready var Bolsa = get_tree().get_first_node_in_group("bolsa")
 #el jugador puede entrar a los siguentes estados desde "MOVE"
 #IDLE, FALL, JUMP, DASH
 func update(delta):
@@ -13,9 +13,16 @@ func update(delta):
 		return STATES.JUMP
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
+	if Player.grab_input :
+		return STATES.GRAB
+	
+		
+	
 	return null
 
 
 func enter_state():
 	Player.get_node("AnimationPlayer").play("run")
 	Player.can_dash = true #resetea el dash
+
+

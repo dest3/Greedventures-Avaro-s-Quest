@@ -1,14 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://olundqsa63tu"]
+[gd_scene load_steps=6 format=3 uid="uid://olundqsa63tu"]
 
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_65cc1"]
 [ext_resource type="Script" path="res://scripts/bolsa.gd" id="1_ive7j"]
 [ext_resource type="PackedScene" uid="uid://p2iipahsx6ob" path="res://interactions/interaction area/interaction_area.tscn" id="3_ue6ta"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n0yux"]
-bounce = 0.25
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6484"]
-radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ak6u6"]
 radius = 14.0
@@ -16,7 +12,6 @@ radius = 14.0
 [node name="bolsa" type="RigidBody2D" groups=["bolsa"]]
 collision_layer = 2
 collision_mask = 5
-physics_material_override = SubResource("PhysicsMaterial_n0yux")
 lock_rotation = true
 max_contacts_reported = 5
 contact_monitor = true
@@ -40,3 +35,5 @@ action_name = "grab"
 shape = SubResource("CircleShape2D_ak6u6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_area_exited"]

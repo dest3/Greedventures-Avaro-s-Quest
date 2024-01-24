@@ -5,7 +5,7 @@ var Player # El player se autoregistra aqui. Se puede definir un setter si se qu
 @onready var label = $Label
 
 
-const base_text = "[E] to " #texto inicial que se muestra cuando se entra a un area de interaccion 
+const base_text = "[K] to " #texto inicial que se muestra cuando se entra a un area de interaccion 
 
 var active_areas = [] #esta variable va a guardar todas las areas con las que se puede interactuar
 var can_interact = true #si puede o no interactuar 
@@ -30,10 +30,11 @@ func _process(_delta):
 		label.global_position.y -= 36 # centra el label en el eje y
 		label.global_position.x -= label.size.x / 2 # centra el label en el eje x
 		label.show() #nuestra el label
+		if Player.grab_input:
+			label.hide()
 	else:
-		label.hide()#esconde el label si no hay areas cerca
-
-
+		#esconde el label si no hay areas cerca
+		label.hide()
 #esta funcion obtiene la posicion de cada area y devuelve la mas cercana al jugador
 func _sort_by_distance_to_player(area1, area2):
 	var area1_to_player = Player.global_position.distance_to(area1.global_position)
@@ -44,7 +45,7 @@ func _sort_by_distance_to_player(area1, area2):
 	
 func _input(event):
 	#si aprieta interactuar y puede 
-	if event.is_action_pressed("interact") && can_interact:
+	if event.is_action_pressed("interact") && can_interact :
 		#comprueba si hay areas de interaccion activas
 		if active_areas.size() > 0:
 			can_interact = false
@@ -53,7 +54,7 @@ func _input(event):
 			await active_areas[0].interact.call()
 			
 			can_interact = true
-
+	
 
 
 	

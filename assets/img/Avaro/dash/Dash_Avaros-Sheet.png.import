@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjp06hqondug8"
-path="res://.godot/imported/Idle_Avaros2-Sheet.png-37b0d1ca04379adc7dcc89eb496fbcea.ctex"
+uid="uid://bsgxw3syjfegs"
+path="res://.godot/imported/Dash_Avaros-Sheet.png-419fe15264d2d0ad06d29f7428749330.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/img/Avaro/Idle/Idle_Avaros2-Sheet.png"
-dest_files=["res://.godot/imported/Idle_Avaros2-Sheet.png-37b0d1ca04379adc7dcc89eb496fbcea.ctex"]
+source_file="res://assets/img/Avaro/dash/Dash_Avaros-Sheet.png"
+dest_files=["res://.godot/imported/Dash_Avaros-Sheet.png-419fe15264d2d0ad06d29f7428749330.ctex"]
 
 [params]
 

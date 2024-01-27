@@ -14,6 +14,6 @@ const lines: Array[String]= [
 func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
 
-func on_interact():#jjgbjbh
+func on_interact():
 	DialogManager.start_dialog(global_position, lines)
 	

@@ -71,6 +71,7 @@ func gravity(delta):
 func get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
+
 # esta funcion cambia de estados y actualiza el estado actual del jugador
 #si el input state es distinto de null
 func change_state(input_state):
@@ -91,7 +92,6 @@ func get_next_to_wall():
 			else:
 				return Vector2.LEFT
 	return null
-
 
 #esta funcion gestiona todo el input del jugador:
 func player_input():

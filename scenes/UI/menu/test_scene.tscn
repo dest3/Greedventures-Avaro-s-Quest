@@ -20,7 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="video" type="TabBar" parent="UI/Setings"]
-visible = false
 layout_mode = 2
 script = ExtResource("1_meba4")
 
@@ -91,6 +90,7 @@ focus_mode = 0
 text = "volver "
 
 [node name="audio" type="TabBar" parent="UI/Setings"]
+visible = false
 layout_mode = 2
 script = ExtResource("2_y4o5v")
 

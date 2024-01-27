@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkx3b8er51odi"]
+[gd_scene load_steps=6 format=3 uid="uid://dkx3b8er51odi"]
 
 [ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_7y60y"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_ob162"]
+[ext_resource type="PackedScene" uid="uid://b6jfl4i8go7kr" path="res://resourses/abstrac_item.tscn" id="4_c3k0c"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="4_giyvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmbfr"]
@@ -71,8 +72,11 @@ scale = Vector2(1.88281, 0.0625)
 texture = ExtResource("1_7y60y")
 
 [node name="Player" parent="." instance=ExtResource("2_ob162")]
-position = Vector2(123, -56)
+position = Vector2(122, -57)
 
 [node name="bolsa" parent="." instance=ExtResource("4_giyvo")]
 position = Vector2(181, -43)
 max_contacts_reported = 2
+
+[node name="AbstracItem" parent="." instance=ExtResource("4_c3k0c")]
+position = Vector2(24, -33)

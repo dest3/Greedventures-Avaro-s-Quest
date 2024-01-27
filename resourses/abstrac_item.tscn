@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6jfl4i8go7kr"]
+
+[ext_resource type="Script" path="res://resourses/abstrac_item.gd" id="1_xjml0"]
+
+[node name="AbstracItem" type="Sprite2D"]
+script = ExtResource("1_xjml0")

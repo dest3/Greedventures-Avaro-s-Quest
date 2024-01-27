@@ -4,7 +4,7 @@ extends RigidBody2D
 
 const lines: Array[String]= [
 	"hola este es el primer test del sistemas de dialogo",
-	
+
 
 ]
 
@@ -21,10 +21,9 @@ func _ready():
 	print(self.position)
 
 func _physics_process(_delta):
-	print("Peso de la bolsa ",peso)
-	if Player.grab_input == false :
-		
-		pass
+	print("Peso de la bolsa ",peso,"kl")
+	
+	
 	
 func on_interact():
 	DialogManager.start_dialog(global_position, lines)
@@ -32,7 +31,7 @@ func on_interact():
 
 func _on_area_entered(_area):
 	if Player.is_in_group("player"):#area para detectar si entro el personaje y asi que pueda 
-		#agarrar la bolsa
+		#agarrar la bolsa 
 		is_caught = true 
 
 

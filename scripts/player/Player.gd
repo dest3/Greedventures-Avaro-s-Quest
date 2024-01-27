@@ -22,6 +22,7 @@ var pausado : bool = false
 var last_direction = Vector2.RIGHT
 
 #mecanicas
+
 var can_dash = true
 var can_interact = true
 var can_grab = true
@@ -58,7 +59,7 @@ func _physics_process(delta):
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
 	
-	#aca aplico la fuerza de empuje del personaje
+#aca aplico la fuerza de empuje del personaje
 	for i in get_slide_collision_count():#obtiene todas las coliciones al moverse
 		var c = get_slide_collision(i)#guarda la colision en c
 		if c.get_collider() is RigidBody2D :#si c es un rigidbody
@@ -95,7 +96,6 @@ func player_input():
 	movement_input = Vector2.ZERO
 	if Input.is_action_pressed("MoveRight"):
 		movement_input.x += 1
-		
 	if Input.is_action_pressed("MoveLeft"):
 		movement_input.x -= 1
 	
@@ -139,12 +139,13 @@ func player_input():
 	else: 
 		interact_input = true
 	
-	#grab
+	#grab ---jony
 	if Input.is_action_just_pressed("Grab") and bolsa.is_caught == true  :
 		grab_input = true
 		Fake_bag.show()
 		bolsa.hide() 
-	#peso de la bolsa 
+	
+	#peso de la bolsa / jony
 	#ligero problema con el match , si se usan decimales estamos en el horno
 	# porque no entra en la condicion o porque no se usarlo bien 
 	# creo que no lo se usar bien :( 
@@ -178,7 +179,7 @@ func player_input():
 			SPEED = 100"""
 			
 			
-		#peso de la bolsa / same pero con if
+		#peso de la bolsa / same pero con if / jony
 	#De 15 a 20 Moderada: reduccion del 5% en la agilidad
 	if bolsa.peso >= 15  and grab_input == true :
 		var l = 100
@@ -199,7 +200,8 @@ func player_input():
 	else:
 		SPEED = 100
 	print("Velocidad del jugador " ,SPEED)
-	#drop
+	
+	#drop---jony
 	if Input.is_action_just_pressed("Drop"):
 		grab_input = false
 		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
@@ -208,8 +210,9 @@ func player_input():
 		Fake_bag.hide()
 		bolsa.show()
 		
-	#lanzar
-	if Input.is_action_just_pressed("Launched") and grab_input :#si grab es true ( solo para si esta agarrado)
+	
+	#lanzar-------------------------- jony
+	if Input.is_action_just_pressed("Launched") and grab_input:#si grab es true ( solo para si esta agarrado)
 		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
 		can_throw = true # se setea en true 
 		#bolsa.colision.disabled= false

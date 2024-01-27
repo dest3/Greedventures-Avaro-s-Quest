@@ -15,12 +15,17 @@ func update(delta):
 		return STATES.DASH
 	if Player.grab_input :
 		return STATES.GRAB
-	
+
 		
 	
 	return null
 func enter_state():
 	Player.can_dash = true #resetea el dash
-	Player.sprite.play("run")
+	
+	if Bolsa.peso >= 30  and Player.grab_input == true :
+		Player.sprite.play("walk")
+	else:
+		Player.sprite.play("run")
+	
 
 

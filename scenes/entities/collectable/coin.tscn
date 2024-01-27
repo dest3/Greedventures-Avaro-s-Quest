@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://c7bvry66hh7na"]
+[gd_scene load_steps=19 format=3 uid="uid://c7bvry66hh7na"]
 
 [ext_resource type="Texture2D" uid="uid://dwri1hu1sxulm" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="1_71k1o"]
 [ext_resource type="Script" path="res://scripts/coin.gd" id="1_rg1dv"]
 [ext_resource type="Texture2D" uid="uid://bnvgked0k4uf3" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_pickup_anim_strip_6.png" id="3_5egic"]
+[ext_resource type="AudioStream" uid="uid://do0n87w4e4loi" path="res://assets/SFX/Collect/coin-2.wav" id="4_fsif1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7q7ae"]
 atlas = ExtResource("1_71k1o")
@@ -121,6 +122,9 @@ shape = SubResource("CapsuleShape2D_e6f8w")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CapsuleShape2D_e6f8w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_fsif1")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_exited"]

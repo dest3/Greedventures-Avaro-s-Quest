@@ -22,7 +22,6 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
-		
 	if Player.jump_input_actuation and counter_jump < max_jump  :
 		counter_jump += 1
 		return STATES.JUMP

@@ -36,14 +36,10 @@ func enter_state():
 			Bolsa.global_position = Player.pi.global_position
 			Bolsa.freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
 			Bolsa.sleeping=  true
-			
-
 	if Player.grab_input :#el drop funciona pero en player , no se porque no aqui
-		
 		Bolsa.freeze = false
 		Bolsa.sleeping=  false
-		
-	pass
+	
 
 func exit_state():
 	#aca se quitan los "trades de la bolsa" cuando la suelta

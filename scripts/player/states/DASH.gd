@@ -13,6 +13,7 @@ func update(_delta):
 		return STATES.FALL
 	return null
 
+
 #cuando entra al estado no puede volver a dashear hasta tocar el suelo
 func enter_state():
 	Player.sprite.play("dash")

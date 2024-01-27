@@ -1,9 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=49 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_bvkld"]
-[ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="2_3ygal"]
 [ext_resource type="Texture2D" uid="uid://cqlb3blupr55e" path="res://assets/img/Avaros/Dash/Dash_Avaros-Sheet.png" id="2_6wbjd"]
 [ext_resource type="Texture2D" uid="uid://bb2y68qacuxuw" path="res://assets/img/Avaros/Idle/Idle_Avaros2-Sheet.png" id="2_jsajx"]
+[ext_resource type="Script" path="res://scenes/entities/player/pause_menu.gd" id="2_mvvjw"]
 [ext_resource type="Script" path="res://scripts/player/states/STATES.gd" id="3_87rwc"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/states/JUMP.tscn" id="3_ulsqu"]
 [ext_resource type="Texture2D" uid="uid://bes6gb8kg5o0r" path="res://assets/img/Avaros/Run/Run_Avaros-Sheet-export.png" id="4_a5fyx"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://b8ip6jp5sul44" path="res://assets/img/Avaros/Jump/JumpDown_Avaros-Sheet-Sheet.png" id="4_mvwby"]
 [ext_resource type="PackedScene" uid="uid://cd71drssnvm1d" path="res://scenes/entities/player/states/MOVE.tscn" id="5_d55dw"]
 [ext_resource type="PackedScene" uid="uid://bu78omcona2ro" path="res://scenes/entities/player/states/FALL.tscn" id="6_e0e8q"]
+[ext_resource type="Texture2D" uid="uid://8gibwe41ytfn" path="res://assets/img/Avaros/Walk/Walkl__Avaros-Sheet.png" id="7_1uxjc"]
 [ext_resource type="PackedScene" uid="uid://7cr0qguiyqho" path="res://scenes/entities/player/states/DASH.tscn" id="8_hxopg"]
 [ext_resource type="PackedScene" uid="uid://bft3fqsdmjm80" path="res://scenes/entities/player/states/SLIDE.tscn" id="9_pal3t"]
 [ext_resource type="PackedScene" uid="uid://wetsu1gi68yo" path="res://scenes/entities/player/states/GRAB.tscn" id="10_7x1xh"]
+[ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="15_fwowe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmmex"]
 atlas = ExtResource("2_6wbjd")
@@ -31,21 +33,21 @@ region = Rect2(256, 0, 128, 128)
 atlas = ExtResource("4_mvwby")
 region = Rect2(384, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_367t7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cael"]
 atlas = ExtResource("2_jsajx")
-region = Rect2(0, 0, 160, 160)
+region = Rect2(0, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fvhee"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_u0h5n"]
 atlas = ExtResource("2_jsajx")
-region = Rect2(160, 0, 160, 160)
+region = Rect2(128, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_iwg41"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo6tp"]
 atlas = ExtResource("2_jsajx")
-region = Rect2(320, 0, 160, 160)
+region = Rect2(256, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t7xhi"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v87o"]
 atlas = ExtResource("2_jsajx")
-region = Rect2(480, 0, 160, 160)
+region = Rect2(384, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8fcng"]
 atlas = ExtResource("4_mvwby")
@@ -83,6 +85,22 @@ region = Rect2(768, 0, 128, 128)
 atlas = ExtResource("4_a5fyx")
 region = Rect2(896, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ww1ct"]
+atlas = ExtResource("7_1uxjc")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85iy0"]
+atlas = ExtResource("7_1uxjc")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6bkt"]
+atlas = ExtResource("7_1uxjc")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k77as"]
+atlas = ExtResource("7_1uxjc")
+region = Rect2(384, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_inowd"]
 animations = [{
 "frames": [],
@@ -114,20 +132,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_367t7")
+"texture": SubResource("AtlasTexture_3cael")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fvhee")
+"texture": SubResource("AtlasTexture_u0h5n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_iwg41")
+"texture": SubResource("AtlasTexture_mo6tp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t7xhi")
+"texture": SubResource("AtlasTexture_5v87o")
 }],
 "loop": true,
 "name": &"idle",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -165,6 +183,23 @@ animations = [{
 "loop": true,
 "name": &"run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ww1ct")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85iy0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6bkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k77as")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v8m2f"]
@@ -174,9 +209,150 @@ height = 14.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xk7g2"]
 size = Vector2(19, 24)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7qca"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vy8p"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyngo"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y8un"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1ksi"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02mwk"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iyhu7"]
+atlas = ExtResource("15_fwowe")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4fold"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7qca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vy8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyngo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2y8un")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1ksi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02mwk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iyhu7")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 5
 script = ExtResource("1_bvkld")
+
+[node name="pause_menu" type="Control" parent="."]
+process_mode = 3
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -83.0
+offset_right = 145.0
+offset_bottom = 82.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("2_mvvjw")
+
+[node name="ColorRect" type="ColorRect" parent="pause_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.247059)
+
+[node name="Label" type="Label" parent="pause_menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -77.0
+offset_right = 49.0
+offset_bottom = -60.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "Menu"
+
+[node name="Inventory" type="Button" parent="pause_menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 41.0
+offset_top = -21.5
+offset_right = 104.0
+offset_bottom = 2.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "Inventory"
+
+[node name="Options" type="Button" parent="pause_menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -21.5
+offset_right = 184.0
+offset_bottom = 2.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "Options"
+
+[node name="Button" type="Button" parent="pause_menu"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 121.0
+offset_top = -21.5
+offset_right = 184.0
+offset_bottom = 2.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "Options"
 
 [node name="Marker_Grab" type="Marker2D" parent="."]
 position = Vector2(-3, 0)
@@ -184,15 +360,12 @@ position = Vector2(-3, 0)
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_inowd")
-animation = &"run"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.361493
+frame_progress = 0.993863
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_v8m2f")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(6, 6)
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_87rwc")
@@ -233,11 +406,13 @@ collision_mask = 6
 
 [node name="TopLeft" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, -10)
+enabled = false
 target_position = Vector2(-9, 0)
 collision_mask = 6
 
 [node name="ButtomLeft" type="RayCast2D" parent="Raycasts"]
 position = Vector2(0, 10)
+enabled = false
 target_position = Vector2(-9, 0)
 collision_mask = 6
 
@@ -248,8 +423,14 @@ position = Vector2(-0.5, -2)
 shape = SubResource("RectangleShape2D_xk7g2")
 debug_color = Color(0.647059, 0.517647, 0.184314, 0.419608)
 
-[node name="Fake_bag" type="Sprite2D" parent="."]
+[node name="Fake_bag" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.560784, 0.509804, 0, 1)
-position = Vector2(-4, 2.25)
-scale = Vector2(0.0390625, 0.0351563)
-texture = ExtResource("2_3ygal")
+position = Vector2(-4, 1.75)
+scale = Vector2(0.0390625, 0.0429688)
+sprite_frames = SubResource("SpriteFrames_4fold")
+animation = &"idle"
+frame = 2
+frame_progress = 0.731721
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

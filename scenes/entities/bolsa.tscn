@@ -1,8 +1,106 @@
-[gd_scene load_steps=6 format=3 uid="uid://olundqsa63tu"]
+[gd_scene load_steps=20 format=3 uid="uid://olundqsa63tu"]
 
-[ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_65cc1"]
 [ext_resource type="Script" path="res://scripts/bolsa.gd" id="1_ive7j"]
+[ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="2_d77xl"]
+[ext_resource type="Texture2D" uid="uid://qdnhweymxvoe" path="res://assets/img/Bolsa/Talk/Talk-Bolsa.png" id="3_04lvx"]
 [ext_resource type="PackedScene" uid="uid://p2iipahsx6ob" path="res://interactions/interaction area/interaction_area.tscn" id="3_ue6ta"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aldif"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nk3h2"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_beiwx"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lk12k"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7w0tb"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0ne3"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_poxrc"]
+atlas = ExtResource("2_d77xl")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lif7g"]
+atlas = ExtResource("3_04lvx")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0yjc"]
+atlas = ExtResource("3_04lvx")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrqv7"]
+atlas = ExtResource("3_04lvx")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enio6"]
+atlas = ExtResource("3_04lvx")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n4gd"]
+atlas = ExtResource("3_04lvx")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hokom"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aldif")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nk3h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_beiwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lk12k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7w0tb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0ne3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_poxrc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lif7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0yjc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrqv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enio6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n4gd")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6484"]
 
@@ -13,17 +111,17 @@ radius = 14.0
 collision_layer = 2
 collision_mask = 5
 lock_rotation = true
-max_contacts_reported = 5
-contact_monitor = true
-angular_damp = 0.5
 script = ExtResource("1_ive7j")
 metadata/_edit_group_ = true
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.560784, 0.509804, 0, 1)
-position = Vector2(-2.98023e-08, -0.5)
-scale = Vector2(0.078125, 0.0703125)
-texture = ExtResource("1_65cc1")
+position = Vector2(-1, 1)
+scale = Vector2(0.15625, 0.171875)
+sprite_frames = SubResource("SpriteFrames_hokom")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.600235
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m6484")

@@ -8,13 +8,15 @@ var dashing = false #esta dasheando
 @onready var DashDuration_timer = $DashDuration #referencia al nodo timer
 
 #si no esta dasehando entra al estado FALL
-func update(delta):
+func update(_delta):
 	if !dashing:
 		return STATES.FALL
 	return null
 
+
 #cuando entra al estado no puede volver a dashear hasta tocar el suelo
 func enter_state():
+	Player.sprite.play("dash")
 	Player.can_dash = false #no puede volver a dashear
 	dashing = true #esta dasheando
 	DashDuration_timer.start(dash_duration)#activa el timer del dash
@@ -27,7 +29,7 @@ func enter_state():
 
 func exit_state():
 	dashing = false #no puede volver a dashear
-
+	
 func _on_timer_timeout():
 	dashing = false #no puede volver a dashear
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c77npili4pel4"
-path="res://.godot/imported/level_spritesheet.png-26a44dd21a040a5480d5ccba54377d99.ctex"
+uid="uid://dvebqf46scj61"
+path="res://.godot/imported/Idle - Bolsa.png-4f54fa1bbef136801bf236729524b488.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/phantom_camera/examples/textures/2D/level_spritesheet.png"
-dest_files=["res://.godot/imported/level_spritesheet.png-26a44dd21a040a5480d5ccba54377d99.ctex"]
+source_file="res://assets/img/Bolsa/Idle/Idle - Bolsa.png"
+dest_files=["res://.godot/imported/Idle - Bolsa.png-4f54fa1bbef136801bf236729524b488.ctex"]
 
 [params]
 

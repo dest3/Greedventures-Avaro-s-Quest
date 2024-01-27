@@ -28,4 +28,5 @@ func slide_movement(delta):
 	else: #sino aprieta trepar
 		player_movement() #se puede mover
 		Player.gravity(delta) #se le aplica la gravedad
-		Player.velocity.y *= slide_friction # se le aplica la friccion
+		if Player.is_on_wall_only():
+			Player.velocity.y *= slide_friction # se le aplica la friccion

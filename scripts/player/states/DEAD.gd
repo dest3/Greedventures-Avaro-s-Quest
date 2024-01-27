@@ -1,6 +1,6 @@
 extends "res://scripts/player/state.gd"
 
-func update(delta):
+func update(_delta):
 	if Player.jump_input_actuation:
 		return STATES.IDLE
 

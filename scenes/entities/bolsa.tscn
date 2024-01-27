@@ -1,11 +1,102 @@
-[gd_scene load_steps=7 format=3 uid="uid://olundqsa63tu"]
+[gd_scene load_steps=20 format=3 uid="uid://olundqsa63tu"]
 
-[ext_resource type="Texture2D" uid="uid://di57kw8amdfvc" path="res://icon.svg" id="1_65cc1"]
 [ext_resource type="Script" path="res://scripts/bolsa.gd" id="1_ive7j"]
+[ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="2_r0usp"]
+[ext_resource type="Texture2D" uid="uid://qdnhweymxvoe" path="res://assets/img/Bolsa/Talk/Talk-Bolsa.png" id="3_kyu30"]
 [ext_resource type="PackedScene" uid="uid://p2iipahsx6ob" path="res://interactions/interaction area/interaction_area.tscn" id="3_ue6ta"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n0yux"]
 bounce = 0.25
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyfi8"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpuka"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vv0t"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x8rrj"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krn5r"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25jsj"]
+atlas = ExtResource("2_r0usp")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2s3a"]
+atlas = ExtResource("3_kyu30")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_db0sd"]
+atlas = ExtResource("3_kyu30")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpboc"]
+atlas = ExtResource("3_kyu30")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pcx4"]
+atlas = ExtResource("3_kyu30")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j65u7"]
+atlas = ExtResource("3_kyu30")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8bs7b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gyfi8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpuka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vv0t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x8rrj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krn5r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25jsj")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2s3a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_db0sd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpboc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pcx4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j65u7")
+}],
+"loop": true,
+"name": &"talk",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m6484"]
 radius = 6.0
@@ -23,11 +114,14 @@ contact_monitor = true
 script = ExtResource("1_ive7j")
 metadata/_edit_group_ = true
 
-[node name="Icon" type="Sprite2D" parent="."]
+[node name="Icon" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.560784, 0.509804, 0, 1)
-position = Vector2(-2.98023e-08, -0.5)
-scale = Vector2(0.078125, 0.0703125)
-texture = ExtResource("1_65cc1")
+position = Vector2(9.53674e-07, 0.999999)
+scale = Vector2(0.21875, 0.273438)
+sprite_frames = SubResource("SpriteFrames_8bs7b")
+animation = &"talk"
+autoplay = "idle"
+frame_progress = 0.930109
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_m6484")
@@ -40,3 +134,5 @@ action_name = "grab"
 shape = SubResource("CircleShape2D_ak6u6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="area_entered" from="InteractionArea" to="." method="_on_area_entered"]
+[connection signal="area_exited" from="InteractionArea" to="." method="_on_area_exited"]

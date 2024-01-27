@@ -16,7 +16,10 @@ var input_actions = {
 	"Dash" : "Dash",
 	"Jump" : "Jump",
 	"Climb" : "Climb",
-	"interact" : "Interact"
+	"interact" : "Interact",
+	"Grab": "Grab",
+	"Drop": "Drop",
+	"Launched": "Launched" 
 	}
 
 

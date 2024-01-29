@@ -27,7 +27,7 @@ window/size/viewport_width=1920
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/amano-ldtk-importer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

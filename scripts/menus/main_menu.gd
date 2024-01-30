@@ -5,9 +5,14 @@ class_name main_menu
 @onready var options = $MarginContainer/HBoxContainer/VBoxContainer/options
 @onready var quit = $MarginContainer/HBoxContainer/VBoxContainer/quit
 
+
+func _ready():
+	pass
+
+
 #va a nivel 1 
 func _on_play_button_down():
-	get_tree().change_scene_to_file("res://scenes/environment/world.tscn")
+	get_tree().change_scene_to_file("res://scenes/environment/level_1.tscn")
 
 #va a opciones
 func _on_options_button_down():
@@ -20,3 +25,6 @@ func _on_quit_button_down():
 #vuelve al menu principal desde opciones
 func _on_volver_video_pressed():
 	get_tree().change_scene_to_file("res://scenes/UI/menu/main_menu.tscn")
+
+
+

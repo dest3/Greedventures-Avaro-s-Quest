@@ -17,7 +17,7 @@ var drop_input = false
 var pausado : bool = false
 #player movement
 @export var SPEED = 100.0
-@export var JUMP_VELOCITY = -400.0
+@export var JUMP_VELOCITY = -250.0
 @export var PUSH_FORCE = 100
 var last_direction = Vector2.RIGHT
 

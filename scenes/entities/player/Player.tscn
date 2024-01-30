@@ -1,7 +1,8 @@
-[gd_scene load_steps=49 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=51 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://bjp06hqondug8" path="res://assets/img/Avaro/Idle/Idle_Avaros2-Sheet.png" id="2_54e1f"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_tnt0b"]
 [ext_resource type="Script" path="res://scripts/player/states/STATES.gd" id="3_87rwc"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/states/JUMP.tscn" id="3_ulsqu"]
 [ext_resource type="PackedScene" uid="uid://cbsq1sykdcc6e" path="res://scenes/entities/player/states/IDLE.tscn" id="4_hms1o"]
@@ -16,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://cphwokdfge534" path="res://scenes/entities/player/states/DEAD.tscn" id="11_wx86v"]
 [ext_resource type="Texture2D" uid="uid://d0f77imxw8f5t" path="res://assets/img/Avaro/Jump/JumpDown_Avaros-Sheet.png" id="12_jbg5x"]
 [ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="16_1sid6"]
+[ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="18_yfpb3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1i6c2"]
 radius = 20.0
@@ -276,7 +278,15 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_1i6c2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+position = Vector2(256, 153)
+zoom = Vector2(2.5, 2.5)
+limit_left = 0
+limit_top = 0
+limit_bottom = 192
+editor_draw_limits = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera2D"]
+script = ExtResource("2_tnt0b")
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_87rwc")
@@ -347,3 +357,29 @@ animation = &"idle"
 
 [node name="Marker_Grab" type="Marker2D" parent="."]
 position = Vector2(-13, 0)
+
+[node name="Node" type="Node" parent="."]
+
+[node name="PhantomCamera2D" type="Node2D" parent="Node"]
+position = Vector2(256, 153)
+script = ExtResource("18_yfpb3")
+priority_override = false
+priority = 1
+zoom = Vector2(2.5, 2.5)
+follow_mode = 2
+follow_target = NodePath("../..")
+follow_parameters/target_offset = Vector2(0, 0)
+follow_parameters/damping = true
+follow_parameters/damping_value = 5.0
+frame_preview = true
+pixel_perfect = false
+limit/draw_limits = true
+limit/left = 0
+limit/top = 0
+limit/right = 10000000
+limit/bottom = 192
+limit/limit_node_target = NodePath("")
+limit/smoothed = false
+tween_parameters = null
+tween_on_load = true
+inactive_update_mode = 0

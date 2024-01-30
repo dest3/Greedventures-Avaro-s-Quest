@@ -23,7 +23,8 @@ ItemDatabase="*res://resourses/item_database.gd"
 
 [display]
 
-window/size/viewport_width=1920
+window/size/viewport_width=1280
+window/size/viewport_height=768
 
 [editor_plugins]
 

@@ -2,23 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cwep0on2tthn7"
-path="res://.godot/imported/PhantomCamera2DSprite.png-6bf2b757da36375026c0e7c928edb9d4.ctex"
+uid="uid://j7e5uqo5v6g0"
+path="res://.godot/imported/lvl 0.png-8bcb10a83241969006fa2d26e06345be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/phantom_camera/examples/textures/2D/PhantomCamera2DSprite.png"
-dest_files=["res://.godot/imported/PhantomCamera2DSprite.png-6bf2b757da36375026c0e7c928edb9d4.ctex"]
+source_file="res://scenes/environment/levels/lvl 0.png"
+dest_files=["res://.godot/imported/lvl 0.png-8bcb10a83241969006fa2d26e06345be.ctex"]
 
 [params]
 
 compress/mode=0
+compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/bptc_ldr=0
 compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=false

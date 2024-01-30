@@ -1,11 +1,13 @@
-[gd_scene load_steps=51 format=3 uid="uid://x7jgw08j0an7"]
+[gd_scene load_steps=57 format=3 uid="uid://x7jgw08j0an7"]
 
 [ext_resource type="Script" path="res://scripts/player/Player.gd" id="1_bvkld"]
 [ext_resource type="Texture2D" uid="uid://bjp06hqondug8" path="res://assets/img/Avaro/Idle/Idle_Avaros2-Sheet.png" id="2_54e1f"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="2_tnt0b"]
 [ext_resource type="Script" path="res://scripts/player/states/STATES.gd" id="3_87rwc"]
+[ext_resource type="Script" path="res://scenes/entities/player/UI_Player.gd" id="3_qdwlu"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/states/JUMP.tscn" id="3_ulsqu"]
 [ext_resource type="PackedScene" uid="uid://cbsq1sykdcc6e" path="res://scenes/entities/player/states/IDLE.tscn" id="4_hms1o"]
+[ext_resource type="FontFile" uid="uid://cts02axv0xt1v" path="res://assets/Fonts/1980v23P05.ttf" id="4_pw83p"]
 [ext_resource type="Texture2D" uid="uid://bcac8nhkrjxae" path="res://assets/img/Avaro/Walk/Walkl__Avaros-Sheet.png" id="4_yd43k"]
 [ext_resource type="Texture2D" uid="uid://bsgxw3syjfegs" path="res://assets/img/Avaro/dash/Dash_Avaros-Sheet.png" id="5_cuu7d"]
 [ext_resource type="PackedScene" uid="uid://cd71drssnvm1d" path="res://scenes/entities/player/states/MOVE.tscn" id="5_d55dw"]
@@ -18,10 +20,29 @@
 [ext_resource type="Texture2D" uid="uid://d0f77imxw8f5t" path="res://assets/img/Avaro/Jump/JumpDown_Avaros-Sheet.png" id="12_jbg5x"]
 [ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="16_1sid6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="18_yfpb3"]
+[ext_resource type="Texture2D" uid="uid://cj5y134bwc3ic" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="19_mi32q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1i6c2"]
 radius = 20.0
 height = 76.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3ygi"]
+atlas = ExtResource("19_mi32q")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vt6nb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3ygi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="FontVariation" id="FontVariation_nb752"]
+base_font = ExtResource("4_pw83p")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xk7g2"]
 size = Vector2(95, 81)
@@ -279,9 +300,9 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_1i6c2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(1280, 765)
+position = Vector2(710, 425)
 scale = Vector2(5, 5)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4.5, 4.5)
 limit_left = 0
 limit_top = 0
 limit_bottom = 192
@@ -289,6 +310,41 @@ editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
 script = ExtResource("2_tnt0b")
+
+[node name="Control" type="Control" parent="Camera2D"]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -142.0
+offset_top = -86.0
+offset_right = 142.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("3_qdwlu")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Camera2D/Control"]
+position = Vector2(18, 18)
+scale = Vector2(1.71354, 1.8125)
+sprite_frames = SubResource("SpriteFrames_vt6nb")
+
+[node name="Counter" type="Label" parent="Camera2D/Control"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 6.0
+offset_right = 50.0
+offset_bottom = 29.0
+theme_override_fonts/font = SubResource("FontVariation_nb752")
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="STATES" type="Node" parent="."]
 script = ExtResource("3_87rwc")
@@ -358,16 +414,16 @@ sprite_frames = SubResource("SpriteFrames_3bgt2")
 animation = &"idle"
 
 [node name="Marker_Grab" type="Marker2D" parent="."]
-position = Vector2(-13, 0)
+position = Vector2(-9.53674e-07, -45)
 
 [node name="Node" type="Node" parent="."]
 
 [node name="PhantomCamera2D" type="Node2D" parent="Node"]
-position = Vector2(256, 153)
+position = Vector2(142, 85)
 script = ExtResource("18_yfpb3")
 priority_override = false
 priority = 1
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(4.5, 4.5)
 follow_mode = 2
 follow_target = NodePath("../..")
 follow_parameters/target_offset = Vector2(0, 0)

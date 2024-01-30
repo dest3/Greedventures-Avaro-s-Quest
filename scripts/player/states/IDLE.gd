@@ -16,9 +16,9 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.velocity.y < 0 and Player.get_next_to_wall() != null:
 		return STATES.JUMP
-	if Player.grab_input and Player.is_on_floor() :
-		return STATES.GRAB
-	
+	#if Player.grab_input and Player.is_on_floor() :
+		#return STATES.GRAB
+	#
 	return null
 
 #al entrar al estado resetea el dash

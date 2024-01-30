@@ -22,7 +22,7 @@ var pausado : bool = false
 var last_direction = Vector2.RIGHT
 
 #mecanicas
-
+var can_climb = true 
 var can_dash = true
 var can_interact = true
 var can_grab = true
@@ -139,13 +139,13 @@ func player_input():
 	else: 
 		interact_input = true
 	
-	#grab ---jony
-	if Input.is_action_just_pressed("Grab") and bolsa.is_caught == true  :
-		grab_input = true
-		Fake_bag.show()
-		bolsa.hide() 
+	#grab ---jony SIN USO DE MOMENTO 
+	#if Input.is_action_just_pressed("Grab") and bolsa.is_caught == true  :
+		#grab_input = true
+		#Fake_bag.show()
+		#bolsa.hide() 
 	
-	#peso de la bolsa / jony
+	#peso de la bolsa / jony SIN USO DE MOMENTO 
 	#ligero problema con el match , si se usan decimales estamos en el horno
 	# porque no entra en la condicion o porque no se usarlo bien 
 	# creo que no lo se usar bien :( 
@@ -197,31 +197,31 @@ func player_input():
 		if bolsa.peso >= 30  and grab_input == true :
 			velo = l - (l * 0.50)
 			SPEED = velo
+			can_climb = false
 	else:
 		SPEED = 100
-	print("Velocidad del jugador " ,SPEED)
+	print("|Velocidad del jugador  |  " ,SPEED ,"  | Peso de la bolsa |  ", bolsa.peso, " | Cantidad de monedas  = | " , bolsa.counter_coin)
 	
-	#drop---jony
-	if Input.is_action_just_pressed("Drop"):
-		grab_input = false
-		bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
-		bolsa.sleeping=  false
-		#bolsa.colision.disabled= false
-		Fake_bag.hide()
-		bolsa.show()
+	##drop---jony SIN USO DE MOMENTO 
+	#if Input.is_action_just_pressed("Drop"):
+		#grab_input = false
+		#bolsa.freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa
+		#bolsa.sleeping=  false
+		##bolsa.colision.disabled= false
+		#Fake_bag.hide()
+		#bolsa.show()
 		
-	
-	#lanzar-------------------------- jony
-	if Input.is_action_just_pressed("Launched") and grab_input:#si grab es true ( solo para si esta agarrado)
-		grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
-		can_throw = true # se setea en true 
-		#bolsa.colision.disabled= false
-		Fake_bag.hide()
-		bolsa.show()
-		if grab_input == false and can_throw and sprite.flip_h == false :# si se cumple
-			bolsa.apply_impulse(Vector2(150,-450), Vector2(0,0)) #se aplica un impulso al eje x/y
-		if grab_input == false and can_throw and sprite.flip_h == true :
-			bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
+	##lanzar------------- jony SIN USO DE MOMENTO 
+	#if Input.is_action_just_pressed("Launched") and grab_input:#si grab es true ( solo para si esta agarrado)
+		#grab_input = false # se deshabilita el agarrado (para asi lanzarlo)
+		#can_throw = true # se setea en true 
+		##bolsa.colision.disabled= false
+		#Fake_bag.hide()
+		#bolsa.show()
+		#if grab_input == false and can_throw and sprite.flip_h == false :# si se cumple
+			#bolsa.apply_impulse(Vector2(150,-450), Vector2(0,0)) #se aplica un impulso al eje x/y
+		#if grab_input == false and can_throw and sprite.flip_h == true :
+			#bolsa.apply_impulse(Vector2(-150,-450), Vector2(0,0))
 
 
 

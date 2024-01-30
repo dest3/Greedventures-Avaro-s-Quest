@@ -1,6 +1,6 @@
 extends "res://scripts/player/state.gd"
 #pasiencia con el sketch que esta en proceso, creo que lo estoy haciendo mal (?
-
+#SIN USO DE MOMENTO 
 var grabing = true
 @onready var Bolsa = get_tree().get_first_node_in_group("bolsa")
 
@@ -32,14 +32,14 @@ func enter_state():
 	#aca se aplicarian los "trades de la bolsa" cuando la agarra
 	#if de jony 
 
-	if Player.grab_input :
-			Bolsa.global_position = Player.pi.global_position
-			Bolsa.freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
-			Bolsa.sleeping=  true
-	if Player.grab_input :#el drop funciona pero en player , no se porque no aqui
-		Bolsa.freeze = false
-		Bolsa.sleeping=  false
-	
+	#if Player.grab_input :
+			#Bolsa.global_position = Player.pi.global_position
+			#Bolsa.freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
+			#Bolsa.sleeping=  true
+	#if Player.grab_input :#el drop funciona pero en player , no se porque no aqui
+		#Bolsa.freeze = false
+		#Bolsa.sleeping=  false
+	pass
 
 func exit_state():
 	#aca se quitan los "trades de la bolsa" cuando la suelta

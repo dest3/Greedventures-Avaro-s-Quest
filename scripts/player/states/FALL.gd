@@ -3,10 +3,11 @@ extends "res://scripts/player/state.gd"
 #referencia al timer
 @onready var CoyoteTimer = $CoyoteTimer
 @export var coyote_duration = .2 #tiempo del coyote time
+@onready var bolsa = get_tree().get_first_node_in_group("bolsa")
 var can_jump = true
 var counter_jump = 1
 var max_jump = 2
-
+var doble = false
 
 #desde FALL puede entrar a 
 #IDLE, DASH, SLIDE, JUMP
@@ -22,12 +23,13 @@ func update(delta):
 		return STATES.SLIDE
 	if Player.jump_input_actuation and can_jump:
 		return STATES.JUMP
-	if Player.jump_input_actuation and counter_jump < max_jump  :
+	if Player.jump_input_actuation and counter_jump < max_jump :
 		counter_jump += 1
-		return STATES.JUMP
-		
-	if Player.grab_input :
-		return STATES.GRAB
+		if Player.SPEED > 51:# si la velocidad del player es mayor a 51 , entonces puede saltar
+			return STATES.JUMP
+
+	#if Player.grab_input :
+		#return STATES.GRAB
 	
 
 	return null

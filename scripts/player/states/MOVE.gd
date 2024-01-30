@@ -13,8 +13,8 @@ func update(delta):
 		return STATES.JUMP
 	if Player.dash_input and Player.can_dash:
 		return STATES.DASH
-	if Player.grab_input :
-		return STATES.GRAB
+	#if Player.grab_input :
+		#return STATES.GRAB
 
 		
 	

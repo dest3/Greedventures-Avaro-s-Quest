@@ -1,5 +1,5 @@
 extends "res://scripts/player/state.gd"
-
+@onready var bolsa = get_tree().get_first_node_in_group("bolsa")
 #desde el salto puede entrar a 
 #FALL y DASH
 func update(delta):

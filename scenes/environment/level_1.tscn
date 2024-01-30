@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://c23e6urci18xo"]
+[gd_scene load_steps=15 format=3 uid="uid://bfc60tmucjfya"]
 
 [ext_resource type="Texture2D" uid="uid://j7e5uqo5v6g0" path="res://scenes/environment/levels/lvl 0.png" id="1_mqrpp"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_n40d7"]
@@ -116,7 +116,6 @@ one_way_collision = true
 
 [node name="Player" parent="." instance=ExtResource("2_n40d7")]
 position = Vector2(23, 90)
-scale = Vector2(0.2, 0.2)
 
 [node name="bolsa" parent="." instance=ExtResource("3_ed3ec")]
 position = Vector2(140, 98)

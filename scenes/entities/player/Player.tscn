@@ -269,6 +269,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+scale = Vector2(0.2, 0.2)
 collision_mask = 4
 script = ExtResource("1_bvkld")
 SPEED = 80.0
@@ -278,7 +279,8 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_1i6c2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(256, 153)
+position = Vector2(1280, 765)
+scale = Vector2(5, 5)
 zoom = Vector2(2.5, 2.5)
 limit_left = 0
 limit_top = 0

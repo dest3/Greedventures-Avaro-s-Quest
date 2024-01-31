@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlgeopfl613iw"]
+[gd_scene load_steps=4 format=3 uid="uid://dlgeopfl613iw"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_wdkrt"]
 [ext_resource type="AudioStream" uid="uid://48oxvady77a0" path="res://assets/sounds/Menu.mp3" id="2_7hlrx"]
+[ext_resource type="Texture2D" uid="uid://dcggs86tfj61g" path="res://assets/UI/Menu principal 2.png" id="3_l0616"]
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -22,11 +23,13 @@ grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -189.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -36,6 +39,7 @@ theme_override_constants/separation = 60
 layout_mode = 2
 
 [node name="titulo" type="Label" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 64
 text = "Greedventures
@@ -77,6 +81,12 @@ text = "QUIT
 stream = ExtResource("2_7hlrx")
 autoplay = true
 bus = &"Music"
+
+[node name="MenuPrincipal2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(637, 381)
+scale = Vector2(0.508593, 0.483609)
+texture = ExtResource("3_l0616")
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/options" to="." method="_on_options_button_down"]

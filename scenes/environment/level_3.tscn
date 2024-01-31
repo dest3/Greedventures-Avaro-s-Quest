@@ -1,6 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://caaccatk7u1db"]
+[gd_scene load_steps=25 format=3 uid="uid://caaccatk7u1db"]
 
 [ext_resource type="Texture2D" uid="uid://dx8j5qvs2ueob" path="res://scenes/environment/levels/lvl 3.png" id="1_xjiih"]
+[ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="2_n5hel"]
+[ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="3_qhhfn"]
+[ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="4_lfbs3"]
+[ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="5_gg5hs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r8hj"]
 size = Vector2(95, 37)
@@ -67,6 +71,8 @@ position = Vector2(161, 97)
 texture = ExtResource("1_xjiih")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(48.5, 84.5)
@@ -185,3 +191,15 @@ shape = SubResource("RectangleShape2D_6wcw7")
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(106, 100.25)
 shape = SubResource("RectangleShape2D_sytf6")
+
+[node name="coin" parent="." instance=ExtResource("2_n5hel")]
+position = Vector2(89, 55)
+
+[node name="Player" parent="." instance=ExtResource("3_qhhfn")]
+position = Vector2(17, 51)
+
+[node name="bolsa" parent="." instance=ExtResource("4_lfbs3")]
+position = Vector2(47, 44)
+
+[node name="puerta" parent="." instance=ExtResource("5_gg5hs")]
+position = Vector2(217, 53)

@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://bfc60tmucjfya"]
+[gd_scene load_steps=18 format=3 uid="uid://bfc60tmucjfya"]
 
 [ext_resource type="Texture2D" uid="uid://j7e5uqo5v6g0" path="res://scenes/environment/levels/lvl 0.png" id="1_mqrpp"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_n40d7"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="3_ed3ec"]
 [ext_resource type="Texture2D" uid="uid://bxi1o4jr6nb7d" path="res://scenes/environment/levels/lvl 1.png" id="4_bvf18"]
 [ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="5_nx0mc"]
+[ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="6_rpvcw"]
+[ext_resource type="PackedScene" uid="uid://n7ube6c6aswe" path="res://scenes/entities/damage_zone.tscn" id="7_7ri7s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5uofj"]
 size = Vector2(387, 71)
@@ -143,3 +145,10 @@ position = Vector2(512, 114)
 
 [node name="coin6" parent="." instance=ExtResource("5_nx0mc")]
 position = Vector2(286, 103)
+
+[node name="puerta" parent="." instance=ExtResource("6_rpvcw")]
+position = Vector2(628, 20)
+
+[node name="damage_zone" parent="." instance=ExtResource("7_7ri7s")]
+position = Vector2(598, 188)
+scale = Vector2(8.23832, 0.692701)

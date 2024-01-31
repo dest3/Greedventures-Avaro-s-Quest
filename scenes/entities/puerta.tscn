@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b8u2owhqq3lix"]
+
+[ext_resource type="Script" path="res://scenes/entities/puerta.gd" id="1_eeicg"]
+[ext_resource type="Texture2D" uid="uid://bvaokw1o53lc1" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/door.png" id="1_mddjo"]
+[ext_resource type="Texture2D" uid="uid://dqsulsegncmvf" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/stone.png" id="2_fa47u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x13ms"]
+size = Vector2(20, 23)
+
+[node name="puerta" type="Area2D"]
+script = ExtResource("1_eeicg")
+
+[node name="Door" type="Sprite2D" parent="."]
+texture = ExtResource("1_mddjo")
+
+[node name="Stone" type="Sprite2D" parent="."]
+position = Vector2(0, 2)
+scale = Vector2(1, 1.25)
+texture = ExtResource("2_fa47u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_x13ms")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

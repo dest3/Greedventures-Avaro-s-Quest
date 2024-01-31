@@ -1,6 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://ds4ywqbjvlx7y"]
+[gd_scene load_steps=17 format=3 uid="uid://ds4ywqbjvlx7y"]
 
 [ext_resource type="Texture2D" uid="uid://dnkdm2e71o4ey" path="res://scenes/environment/levels/lvl 4.png" id="1_wyb3m"]
+[ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_l0uch"]
+[ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="3_1s83h"]
+[ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="4_whqpt"]
+[ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="5_g6pis"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0kg2"]
 size = Vector2(30, 14)
@@ -13,6 +17,12 @@ size = Vector2(31, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ov006"]
 size = Vector2(37.5, 22.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1iw16"]
+size = Vector2(7.75, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2781k"]
+size = Vector2(17.875, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2v6b"]
 size = Vector2(9.75, 16.25)
@@ -36,6 +46,8 @@ position = Vector2(160, 96)
 texture = ExtResource("1_wyb3m")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 4
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(32, 80)
@@ -56,6 +68,26 @@ shape = SubResource("RectangleShape2D_2lqrj")
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(244.25, 139.75)
 shape = SubResource("RectangleShape2D_ov006")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(276.125, 172)
+shape = SubResource("RectangleShape2D_1iw16")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(268, 179)
+shape = SubResource("RectangleShape2D_1iw16")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(260, 187)
+shape = SubResource("RectangleShape2D_1iw16")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(300, 172)
+shape = SubResource("RectangleShape2D_1iw16")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(312.063, 177)
+shape = SubResource("RectangleShape2D_2781k")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(213.125, 55.875)
@@ -102,3 +134,15 @@ position = Vector2(101, 138.82)
 shape = SubResource("RectangleShape2D_qqaxy")
 one_way_collision = true
 debug_color = Color(0.411765, 0.603922, 0, 0.419608)
+
+[node name="Player" parent="." instance=ExtResource("2_l0uch")]
+position = Vector2(76, 124)
+
+[node name="bolsa" parent="." instance=ExtResource("3_1s83h")]
+position = Vector2(107, 119)
+
+[node name="coin" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(148, 127)
+
+[node name="puerta" parent="." instance=ExtResource("5_g6pis")]
+position = Vector2(139, 85)

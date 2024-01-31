@@ -4,8 +4,8 @@ extends RigidBody2D
 
 const lines: Array[String]= [
 	"hola este es el primer test del sistemas de dialogo",
-
-
+ 
+	  
 ]
 
 @onready var interaction_area: interactionArea = $InteractionArea
@@ -32,7 +32,7 @@ func _physics_process(_delta):
 func _input(_event):
 	if Input.is_action_just_pressed("Grab") and is_caught == true  :
 		Player.grab_input = true
-		Player.Fake_bag.show()
+		#Player.Fake_bag.show()
 	if Input.is_action_just_pressed("Drop"):
 		Player.grab_input = false
 		freeze = false # freeze y sleeping en false le devuelven la fisica a la bolsa

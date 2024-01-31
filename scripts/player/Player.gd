@@ -200,7 +200,7 @@ func player_input():
 			can_climb = false
 	else:
 		SPEED = 100
-	print("|Velocidad del jugador  |  " ,SPEED ,"  | Peso de la bolsa |  ", bolsa.peso, " | Cantidad de monedas  = | " , bolsa.counter_coin)
+	#print("|Velocidad del jugador  |  " ,SPEED ,"  | Peso de la bolsa |  ", bolsa.peso, " | Cantidad de monedas  = | " , bolsa.counter_coin)
 	
 	##drop---jony SIN USO DE MOMENTO 
 	#if Input.is_action_just_pressed("Drop"):

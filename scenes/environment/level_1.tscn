@@ -1,6 +1,7 @@
-[gd_scene load_steps=18 format=3 uid="uid://bfc60tmucjfya"]
+[gd_scene load_steps=19 format=3 uid="uid://bfc60tmucjfya"]
 
 [ext_resource type="Texture2D" uid="uid://j7e5uqo5v6g0" path="res://scenes/environment/levels/lvl 0.png" id="1_mqrpp"]
+[ext_resource type="Script" path="res://scenes/environment/level_1.gd" id="1_yoqd5"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_n40d7"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="3_ed3ec"]
 [ext_resource type="Texture2D" uid="uid://bxi1o4jr6nb7d" path="res://scenes/environment/levels/lvl 1.png" id="4_bvf18"]
@@ -39,6 +40,7 @@ size = Vector2(25, 14)
 size = Vector2(25, 6)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_yoqd5")
 
 [node name="Lvl0" type="Sprite2D" parent="."]
 position = Vector2(160, 96)

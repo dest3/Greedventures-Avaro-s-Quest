@@ -367,6 +367,7 @@ script = ExtResource("3_87rwc")
 [node name="DEAD" parent="STATES" instance=ExtResource("11_wx86v")]
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -22.0
 offset_top = -65.0
 offset_right = 25.0

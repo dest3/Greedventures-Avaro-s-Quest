@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 InteractionManager="*res://interactions/interactionManager.tscn"
 DialogManager="*res://scenes/UI/dialogManager.gd"
 ItemDatabase="*res://resourses/item_database.gd"
+MusicControler="*res://music controler/Music_controler.tscn"
 
 [display]
 

@@ -112,6 +112,11 @@ position = Vector2(468, -74.5)
 shape = SubResource("RectangleShape2D_e6uot")
 one_way_collision = true
 
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Lvl0/StaticBody2D"]
+position = Vector2(406, -10.5)
+shape = SubResource("RectangleShape2D_e6uot")
+one_way_collision = true
+
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Lvl0/StaticBody2D"]
 position = Vector2(469, -122.5)
 shape = SubResource("RectangleShape2D_e6uot")
@@ -121,18 +126,15 @@ one_way_collision = true
 position = Vector2(23, 90)
 
 [node name="bolsa" parent="." instance=ExtResource("3_ed3ec")]
-position = Vector2(140, 98)
+position = Vector2(567, 135)
 
 [node name="Lvl1" type="Sprite2D" parent="."]
 z_index = -1
 position = Vector2(480, 96)
 texture = ExtResource("4_bvf18")
 
-[node name="coin" parent="." instance=ExtResource("5_nx0mc")]
-position = Vector2(94, 114)
-
 [node name="coin2" parent="." instance=ExtResource("5_nx0mc")]
-position = Vector2(192, 111)
+position = Vector2(628, 103)
 
 [node name="coin3" parent="." instance=ExtResource("5_nx0mc")]
 position = Vector2(401, 153)
@@ -141,10 +143,7 @@ position = Vector2(401, 153)
 position = Vector2(627, 72)
 
 [node name="coin5" parent="." instance=ExtResource("5_nx0mc")]
-position = Vector2(512, 114)
-
-[node name="coin6" parent="." instance=ExtResource("5_nx0mc")]
-position = Vector2(286, 103)
+position = Vector2(512, 102)
 
 [node name="puerta" parent="." instance=ExtResource("6_rpvcw")]
 position = Vector2(628, 20)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=25 format=3 uid="uid://caaccatk7u1db"]
+[gd_scene load_steps=26 format=3 uid="uid://caaccatk7u1db"]
 
 [ext_resource type="Texture2D" uid="uid://dx8j5qvs2ueob" path="res://scenes/environment/levels/lvl 3.png" id="1_xjiih"]
 [ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="2_n5hel"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="3_qhhfn"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="4_lfbs3"]
 [ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="5_gg5hs"]
+[ext_resource type="PackedScene" uid="uid://n7ube6c6aswe" path="res://scenes/entities/damage_zone.tscn" id="6_oymoo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2r8hj"]
 size = Vector2(95, 37)
@@ -193,7 +194,19 @@ position = Vector2(106, 100.25)
 shape = SubResource("RectangleShape2D_sytf6")
 
 [node name="coin" parent="." instance=ExtResource("2_n5hel")]
-position = Vector2(89, 55)
+position = Vector2(149, 20)
+
+[node name="coin2" parent="." instance=ExtResource("2_n5hel")]
+position = Vector2(57, 128)
+
+[node name="coin3" parent="." instance=ExtResource("2_n5hel")]
+position = Vector2(145, 176)
+
+[node name="coin4" parent="." instance=ExtResource("2_n5hel")]
+position = Vector2(252, 119)
+
+[node name="coin5" parent="." instance=ExtResource("2_n5hel")]
+position = Vector2(294, 8)
 
 [node name="Player" parent="." instance=ExtResource("3_qhhfn")]
 position = Vector2(17, 51)
@@ -203,3 +216,7 @@ position = Vector2(47, 44)
 
 [node name="puerta" parent="." instance=ExtResource("5_gg5hs")]
 position = Vector2(217, 53)
+
+[node name="damage_zone" parent="." instance=ExtResource("6_oymoo")]
+position = Vector2(138, 197)
+scale = Vector2(14.5296, 0.813371)

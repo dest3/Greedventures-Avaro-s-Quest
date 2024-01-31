@@ -20,6 +20,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("3_l0616")
+expand_mode = 3
+stretch_mode = 6
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -30,22 +33,6 @@ anchor_bottom = 1.0
 offset_top = -189.0
 grow_horizontal = 2
 grow_vertical = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 60
-
-[node name="separador" type="Control" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="titulo" type="Label" parent="MarginContainer/VBoxContainer"]
-visible = false
-layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "Greedventures
-Avaro's Quest"
-horizontal_alignment = 1
-metadata/_edit_group_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -81,12 +68,6 @@ text = "QUIT
 stream = ExtResource("2_7hlrx")
 autoplay = true
 bus = &"Music"
-
-[node name="MenuPrincipal2" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(637, 381)
-scale = Vector2(0.508593, 0.483609)
-texture = ExtResource("3_l0616")
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/options" to="." method="_on_options_button_down"]

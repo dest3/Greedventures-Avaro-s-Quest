@@ -2,6 +2,7 @@ extends Area2D
 var monedas: Array = []
 @onready var bolsa = $"../bolsa"
 @onready var stone = $Stone
+@onready var player = $"../Player"
 
 var current_lvl = ""
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +24,9 @@ func change_lvl():
 			get_tree().change_scene_to_file("res://scenes/environment/level_3.tscn")
 	elif current_lvl == "level_3":
 			get_tree().change_scene_to_file("res://scenes/environment/level_4.tscn")
-
+	elif current_lvl == "level_4":
+			get_tree().change_scene_to_file("res://scenes/environment/win.tscn")
 
 func _on_body_entered(body):
-	change_lvl()
+	if body == player and player.grab_input == true and !stone.is_visible_in_tree():
+		change_lvl()

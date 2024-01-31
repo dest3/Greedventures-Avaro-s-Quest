@@ -28,3 +28,11 @@ func _on_volver_video_pressed():
 
 
 
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/UI/menu/main_menu.tscn")
+
+
+func _on_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/UI/menu/main_menu.tscn")

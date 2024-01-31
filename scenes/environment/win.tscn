@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bm2nsgvt77ip0"]
+
+[ext_resource type="Texture2D" uid="uid://beppfeumm3rdy" path="res://assets/UI/Pantalla win .png" id="1_ff1m3"]
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_my2fm"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1056.0
+offset_top = 484.0
+offset_right = 1056.0
+offset_bottom = 484.0
+script = ExtResource("1_my2fm")
+
+[node name="PantallaWin" type="Sprite2D" parent="."]
+position = Vector2(-414.5, -97)
+scale = Vector2(0.511191, 0.488861)
+texture = ExtResource("1_ff1m3")
+
+[node name="menu" type="Button" parent="."]
+layout_mode = 0
+offset_left = -921.0
+offset_top = 119.0
+offset_right = -868.0
+offset_bottom = 150.0
+text = "menu
+"
+
+[connection signal="pressed" from="menu" to="." method="_on_menu_pressed"]

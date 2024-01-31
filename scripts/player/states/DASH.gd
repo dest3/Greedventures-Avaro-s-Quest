@@ -2,7 +2,7 @@ extends "res://scripts/player/state.gd"
 
 #variables del dash
 var dash_direction = Vector2.ZERO #direccion
-var dash_speed = 240 # velocidad 
+var dash_speed = 140 # velocidad 
 var dashing = false #esta dasheando 
 @export var dash_duration = .2 #cuando dura
 @onready var DashDuration_timer = $DashDuration #referencia al nodo timer

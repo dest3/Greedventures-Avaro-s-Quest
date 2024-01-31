@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0i3mswkltd3l"]
+
+[ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_ntp2q"]
+[ext_resource type="Texture2D" uid="uid://bqcii3shep1l0" path="res://assets/UI/Pantalla lose.png" id="2_uq6tl"]
+
+[node name="lose" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ntp2q")
+
+[node name="PantallaLose" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(635, 383)
+scale = Vector2(0.509088, 0.489)
+texture = ExtResource("2_uq6tl")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 125.0
+offset_top = 556.0
+offset_right = 133.0
+offset_bottom = 564.0
+text = "menu
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

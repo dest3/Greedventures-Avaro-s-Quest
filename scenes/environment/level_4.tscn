@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://ds4ywqbjvlx7y"]
+[gd_scene load_steps=19 format=3 uid="uid://ds4ywqbjvlx7y"]
 
 [ext_resource type="Texture2D" uid="uid://dnkdm2e71o4ey" path="res://scenes/environment/levels/lvl 4.png" id="1_wyb3m"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_l0uch"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="3_1s83h"]
 [ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="4_whqpt"]
 [ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="5_g6pis"]
+[ext_resource type="PackedScene" uid="uid://n7ube6c6aswe" path="res://scenes/entities/damage_zone.tscn" id="6_vyo1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0kg2"]
 size = Vector2(30, 14)
@@ -20,6 +21,9 @@ size = Vector2(37.5, 22.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1iw16"]
 size = Vector2(7.75, 38)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1fx2k"]
+size = Vector2(15.875, 326)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2781k"]
 size = Vector2(17.875, 32)
@@ -72,6 +76,24 @@ shape = SubResource("RectangleShape2D_ov006")
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(276.125, 172)
 shape = SubResource("RectangleShape2D_1iw16")
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(327.938, 95)
+shape = SubResource("RectangleShape2D_1fx2k")
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, 96)
+shape = SubResource("RectangleShape2D_1fx2k")
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(163, -8)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_1fx2k")
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(160, 199)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_1fx2k")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(268, 179)
@@ -142,7 +164,30 @@ position = Vector2(76, 124)
 position = Vector2(107, 119)
 
 [node name="coin" parent="." instance=ExtResource("4_whqpt")]
-position = Vector2(148, 127)
+position = Vector2(24, 63)
+
+[node name="coin2" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(68, 25)
+
+[node name="coin3" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(203, 57)
+
+[node name="coin4" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(244, 16)
+
+[node name="coin5" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(243, 120)
+
+[node name="coin6" parent="." instance=ExtResource("4_whqpt")]
+position = Vector2(312, 8)
 
 [node name="puerta" parent="." instance=ExtResource("5_g6pis")]
-position = Vector2(139, 85)
+position = Vector2(140, 85)
+
+[node name="damage_zone" parent="." instance=ExtResource("6_vyo1j")]
+position = Vector2(134, 179)
+scale = Vector2(13.247, -1.26445)
+
+[node name="damage_zone2" parent="." instance=ExtResource("6_vyo1j")]
+position = Vector2(61, 161)
+scale = Vector2(13.247, -1.26445)

@@ -25,7 +25,7 @@ var input_actions = {
 
 func _ready():
 	_create_action_list()
-
+	
 
 func _create_action_list():
 	InputMap.load_from_project_settings() #carga la lista de acciones en el mapa de entrada

@@ -17,9 +17,13 @@ func _ready():
 
 func _on_area_entered(_area):
 	if Player.is_in_group("player") and Player.grab_input :
+		bolsa.sprite_bolsa.scale += Vector2(00.1,00.1)# es un ejemplo exagerado de aumento en scale pero
+		#cumple la funcion de mostrar que si funciona , faltaria dejarla en su scale normal 
+		# si es que cae a la lava y tambien que pierda las monedas estilo sonic
 		$AudioStreamPlayer.play()
 		sprite.play("pick_up")
 		await sprite.animation_finished
+		
 		queue_free()
 #no se si es el orden de las cosas o que o quizas deba usar otro metodo 
 #pero hay veces en las que el sonido suena raro o no suena completo 

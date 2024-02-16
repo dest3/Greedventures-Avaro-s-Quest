@@ -10,7 +10,7 @@ func _ready():
 	monedas = get_tree().get_nodes_in_group("coin")
 	current_lvl = get_tree().current_scene.name
 
-func _process(delta):
+func _process(_delta):
 	
 	if bolsa.counter_coin == monedas.size():
 		stone.hide()

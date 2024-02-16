@@ -1,15 +1,22 @@
 extends Control
 class_name main_menu
 
-@onready var play = $MarginContainer/HBoxContainer/VBoxContainer/play
-@onready var options = $MarginContainer/HBoxContainer/VBoxContainer/options
-@onready var quit = $MarginContainer/HBoxContainer/VBoxContainer/quit
 
+#mati estas onready te daban errores en el depurador
+#no las elimino pero si las comento , creo que no hacen nada sin ofender 
 
+#@onready var play = $MarginContainer/HBoxContainer/VBoxContainer/play
+#@onready var options = $MarginContainer/HBoxContainer/VBoxContainer/options
+#@onready var quit = $MarginContainer/HBoxContainer/VBoxContainer/quit
+#--------------------
 func _ready():
 	pass
-
-
+	
+#al apretar ESC va al menu , funciona de momento para el tsnc de WIN, LOSE y de OPCIONES
+func _input(event):
+	if Input.is_action_just_pressed("ui_cancel"):
+		get_tree().change_scene_to_file("res://scenes/UI/menu/main_menu.tscn")
+		
 #va a nivel 1 
 func _on_play_button_down():
 	get_tree().change_scene_to_file("res://scenes/environment/level_1.tscn")

@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://scenes/entities/player/UI_Player.gd" id="3_qdwlu"]
 [ext_resource type="PackedScene" uid="uid://rahvx1fnjiwx" path="res://scenes/entities/player/states/JUMP.tscn" id="3_ulsqu"]
 [ext_resource type="PackedScene" uid="uid://cbsq1sykdcc6e" path="res://scenes/entities/player/states/IDLE.tscn" id="4_hms1o"]
-[ext_resource type="FontFile" uid="uid://cts02axv0xt1v" path="res://assets/Fonts/1980v23P05.ttf" id="4_pw83p"]
+[ext_resource type="FontFile" uid="uid://bq2te1tninu5t" path="res://assets/Fonts/1980v23P05.ttf" id="4_pw83p"]
 [ext_resource type="Texture2D" uid="uid://bcac8nhkrjxae" path="res://assets/img/Avaro/Walk/Walkl__Avaros-Sheet.png" id="4_yd43k"]
 [ext_resource type="Texture2D" uid="uid://bsgxw3syjfegs" path="res://assets/img/Avaro/dash/Dash_Avaros-Sheet.png" id="5_cuu7d"]
 [ext_resource type="PackedScene" uid="uid://cd71drssnvm1d" path="res://scenes/entities/player/states/MOVE.tscn" id="5_d55dw"]
@@ -16,11 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://7cr0qguiyqho" path="res://scenes/entities/player/states/DASH.tscn" id="8_hxopg"]
 [ext_resource type="PackedScene" uid="uid://bft3fqsdmjm80" path="res://scenes/entities/player/states/SLIDE.tscn" id="9_pal3t"]
 [ext_resource type="PackedScene" uid="uid://wetsu1gi68yo" path="res://scenes/entities/player/states/GRAB.tscn" id="10_7x1xh"]
-[ext_resource type="PackedScene" uid="uid://cphwokdfge534" path="res://scenes/entities/player/states/DEAD.tscn" id="11_wx86v"]
+[ext_resource type="PackedScene" path="res://scenes/entities/player/states/DEAD.tscn" id="11_wx86v"]
 [ext_resource type="Texture2D" uid="uid://d0f77imxw8f5t" path="res://assets/img/Avaro/Jump/JumpDown_Avaros-Sheet.png" id="12_jbg5x"]
 [ext_resource type="Texture2D" uid="uid://dvebqf46scj61" path="res://assets/img/Bolsa/Idle/Idle - Bolsa.png" id="16_1sid6"]
 [ext_resource type="Script" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2D.gd" id="18_yfpb3"]
-[ext_resource type="Texture2D" uid="uid://cj5y134bwc3ic" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="19_mi32q"]
+[ext_resource type="Texture2D" uid="uid://dwri1hu1sxulm" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="19_mi32q"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1i6c2"]
 radius = 20.0

@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bm2nsgvt77ip0"]
+[gd_scene load_steps=5 format=3 uid="uid://dibolb8pdb23d"]
 
 [ext_resource type="Texture2D" uid="uid://beppfeumm3rdy" path="res://assets/UI/Pantalla win .png" id="1_ff1m3"]
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_my2fm"]
+[ext_resource type="Texture2D" uid="uid://5qhfmi5o07o" path="res://assets/UI/RPG UI/All.png" id="3_7xhti"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2ua1g"]
+texture = ExtResource("3_7xhti")
+region_rect = Rect2(582, 147, 38, 11)
 
 [node name="win" type="Control"]
 layout_mode = 3
@@ -23,6 +28,7 @@ offset_left = -921.0
 offset_top = 119.0
 offset_right = -868.0
 offset_bottom = 150.0
+theme_override_styles/focus = SubResource("StyleBoxTexture_2ua1g")
 text = "menu
 "
 

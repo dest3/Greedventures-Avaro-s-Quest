@@ -1,8 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlgeopfl613iw"]
+[gd_scene load_steps=9 format=3 uid="uid://dlgeopfl613iw"]
 
 [ext_resource type="Script" path="res://scripts/menus/main_menu.gd" id="1_wdkrt"]
 [ext_resource type="AudioStream" uid="uid://48oxvady77a0" path="res://assets/sounds/Menu.mp3" id="2_7hlrx"]
+[ext_resource type="Texture2D" uid="uid://5qhfmi5o07o" path="res://assets/UI/RPG UI/All.png" id="3_1rpcc"]
 [ext_resource type="Texture2D" uid="uid://dcggs86tfj61g" path="res://assets/UI/Menu principal 2.png" id="3_l0616"]
+[ext_resource type="Script" path="res://scenes/UI/menu/play.gd" id="3_ow55v"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d2btw"]
+texture = ExtResource("3_1rpcc")
+region_rect = Rect2(583, 147, 38, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2rlwx"]
+texture = ExtResource("3_1rpcc")
+region_rect = Rect2(583, 147, 37, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hsijt"]
+texture = ExtResource("3_1rpcc")
+region_rect = Rect2(583, 147, 38, 11)
 
 [node name="main_menu" type="Control"]
 layout_mode = 3
@@ -49,25 +63,28 @@ layout_mode = 2
 [node name="play" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_d2btw")
 text = "PLAY
 "
+script = ExtResource("3_ow55v")
 
 [node name="options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_2rlwx")
 text = "OPTIONS
 "
 
 [node name="quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(120, 30)
 layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxTexture_hsijt")
 text = "QUIT
 "
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_7hlrx")
 autoplay = true
-bus = &"Music"
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/play" to="." method="_on_play_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/options" to="." method="_on_options_button_down"]

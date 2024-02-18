@@ -13,7 +13,7 @@ func _ready():
 	pass
 	
 #al apretar ESC va al menu , funciona de momento para el tsnc de WIN, LOSE y de OPCIONES
-func _input(event):
+func _input(_event):
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().change_scene_to_file("res://scenes/UI/menu/main_menu.tscn")
 		

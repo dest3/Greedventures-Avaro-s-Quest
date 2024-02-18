@@ -13,7 +13,8 @@ const lines: Array[String]= [
 @onready var colision = $CollisionShape2D
 @onready var timer = $Timer
 @onready var sprite_bolsa = $Icon
-
+@onready var player = $"../Player"
+@onready var damage_zone = $"../damage_zone"
 
 const time_to_grab = 3  
 
@@ -34,9 +35,8 @@ func _physics_process(_delta):
 			self.global_position = Player.pi.global_position
 			freeze = true #freeze y sleeping en true le quitan la fisica a la bolsa
 			sleeping=  true
-	print(sprite_bolsa.scale)#para que veas en consola  que si aumenta el scale 
 	
-	
+
 func _input(_event):
 	#if Input.is_action_just_pressed("Grab") and is_caught == true  :
 		#Player.grab_input = true
@@ -64,17 +64,25 @@ func _input(_event):
 func on_interact():
 	DialogManager.start_dialog(global_position, lines)
 
+ 
+# si la bolsa cae a una zona de daño (lava) esta hace respaw en la espalda del jugador 
+#pd : para reutilizarlo hay que añadir "damage_zone" como grupo al nodo que quieras que lo use
+#ejemplo :puas o yo que se ... 
+func _on_area_entered(area):
+	if area.is_in_group("damage_zone"):
+		is_caught = true 
+		Player.grab_input = true
 
-func _on_area_entered(_area):
-	if Player.is_in_group("player"):#area para detectar si entro el personaje y asi que pueda 
-		#agarrar la bolsa 
+#si el personaje toca la bolsa la agarra
+func _on_body_player_entered(body):
+	if body == player:
 		is_caught = true 
 		Player.grab_input = true
 
 
-func _on_area_exited(_area):
-	if Player.is_in_group("player"):
+
+func _on_body_player_exited(body):
+	if body == player:
 		is_caught = false
 		player_exited = true
-	
 

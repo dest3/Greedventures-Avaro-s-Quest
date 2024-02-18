@@ -4,11 +4,10 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n07qj"]
 
-[node name="damage_zone" type="Area2D"]
+[node name="damage_zone" type="Area2D" groups=["damage_zone"]]
 script = ExtResource("1_yu6nt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_n07qj")
 
-[connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

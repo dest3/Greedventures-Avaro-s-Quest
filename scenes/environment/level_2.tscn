@@ -1,11 +1,11 @@
-[gd_scene load_steps=35 format=3 uid="uid://dch1lpx3n7roq"]
+[gd_scene load_steps=35 format=3 uid="uid://cfv6epsmhp33x"]
 
 [ext_resource type="Texture2D" uid="uid://b3xxx0c4rm4vn" path="res://scenes/environment/levels/lvl 2.png" id="1_il8ey"]
 [ext_resource type="PackedScene" uid="uid://x7jgw08j0an7" path="res://scenes/entities/player/Player.tscn" id="2_csl08"]
 [ext_resource type="PackedScene" uid="uid://olundqsa63tu" path="res://scenes/entities/bolsa.tscn" id="3_lwu71"]
-[ext_resource type="PackedScene" uid="uid://cdtttrsa8fmf3" path="res://coin.tscn" id="4_f71nd"]
-[ext_resource type="PackedScene" uid="uid://b8u2owhqq3lix" path="res://scenes/entities/puerta.tscn" id="5_ma42q"]
-[ext_resource type="PackedScene" uid="uid://n7ube6c6aswe" path="res://scenes/entities/damage_zone.tscn" id="6_3sx5u"]
+[ext_resource type="PackedScene" uid="uid://dx732n56txkue" path="res://coin.tscn" id="4_f71nd"]
+[ext_resource type="PackedScene" uid="uid://bgjhe6v2y13as" path="res://scenes/entities/puerta.tscn" id="5_ma42q"]
+[ext_resource type="PackedScene" uid="uid://4iofbe63moho" path="res://scenes/entities/damage_zone.tscn" id="6_3sx5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emy6j"]
 size = Vector2(8, 80)

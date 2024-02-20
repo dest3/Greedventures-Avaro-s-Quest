@@ -17,7 +17,7 @@ func _ready():
 
 func _on_area_entered(_area):
 	if Player.is_in_group("player") and Player.grab_input :
-		bolsa.sprite_bolsa.scale += Vector2(000.1,000.1)
+		bolsa.sprite_bolsa.scale += Vector2(0.02,0.02)
 		# faltaria dejarla en su scale normal 
 		# si es que cae a la lava y tambien que pierda las monedas estilo sonic
 		$AudioStreamPlayer.play()

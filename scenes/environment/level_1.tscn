@@ -137,7 +137,7 @@ one_way_collision = true
 position = Vector2(23, 90)
 
 [node name="bolsa" parent="." instance=ExtResource("3_ed3ec")]
-position = Vector2(567, 135)
+position = Vector2(295, 112)
 
 [node name="Lvl1" type="Sprite2D" parent="."]
 z_index = -1

@@ -102,7 +102,7 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ak6u6"]
-radius = 8.24621
+radius = 16.0
 
 [node name="bolsa" type="RigidBody2D" groups=["bolsa"]]
 z_index = 1
@@ -132,6 +132,7 @@ shape = SubResource("CircleShape2D_m6484")
 debug_color = Color(0.733333, 0.470588, 0, 0.419608)
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_ue6ta")]
+collision_layer = 2
 action_name = "grab"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]

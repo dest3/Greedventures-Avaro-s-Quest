@@ -59,11 +59,12 @@ func _physics_process(delta):
 	$Label.text = str(current_state.get_name())
 	move_and_slide()
 	
-#aca aplico la fuerza de empuje del personaje
-	for i in get_slide_collision_count():#obtiene todas las coliciones al moverse
-		var c = get_slide_collision(i)#guarda la colision en c
-		if c.get_collider() is RigidBody2D :#si c es un rigidbody
-			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
+#aca aplico la fuerza de empuje del personaje.
+#lo comento porque ahora la agarra al pasar por encima asi que es al pedo <3 
+	#for i in get_slide_collision_count():#obtiene todas las coliciones al moverse
+		#var c = get_slide_collision(i)#guarda la colision en c
+		#if c.get_collider() is RigidBody2D :#si c es un rigidbody
+			#c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)#aplica la fuerza
 	
 #agrega la gravedad si no esta en el suelo
 func gravity(delta):

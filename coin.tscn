@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://dx732n56txkue"]
 
 [ext_resource type="Script" path="res://coin.gd" id="1_7onvd"]
-[ext_resource type="Texture2D" uid="uid://dwri1hu1sxulm" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="1_iqi3u"]
-[ext_resource type="Texture2D" uid="uid://bnvgked0k4uf3" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_pickup_anim_strip_6.png" id="2_tg4u3"]
-[ext_resource type="AudioStream" uid="uid://dy3x0l48217m8" path="res://assets/SFX/Collect/coin-1.wav" id="4_kgpp6"]
+[ext_resource type="Texture2D" uid="uid://cj5y134bwc3ic" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_anim_strip_6.png" id="1_iqi3u"]
+[ext_resource type="Texture2D" uid="uid://dbccpog0esjdw" path="res://assets/img/platformer_metroidvania/miscellaneous sprites/coin_pickup_anim_strip_6.png" id="2_tg4u3"]
+[ext_resource type="AudioStream" uid="uid://bv16hrile5y8b" path="res://assets/SFX/Collect/coin-1.wav" id="4_kgpp6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l26fq"]
 atlas = ExtResource("1_iqi3u")

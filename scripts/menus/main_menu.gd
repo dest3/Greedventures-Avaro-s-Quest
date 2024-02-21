@@ -19,7 +19,7 @@ func _input(_event):
 		
 #va a nivel 1 
 func _on_play_button_down():
-	get_tree().change_scene_to_file("res://scenes/environment/level_1.tscn")
+	get_tree().change_scene_to_file("res://scenes/videos/video_intro.tscn")
 
 #va a opciones
 func _on_options_button_down():

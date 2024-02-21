@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Avaro's Quest"
-run/main_scene="res://scenes/UI/menu/main_menu.tscn"
+run/main_scene="res://scenes/videos/video_splash.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -29,7 +29,7 @@ window/size/viewport_height=768
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/ldtk-importer/plugin.cfg", "res://addons/phantom_camera/plugin.cfg")
+enabled=PackedStringArray("res://addons/phantom_camera/plugin.cfg")
 
 [file_customization]
 

@@ -304,6 +304,10 @@ shape = SubResource("CapsuleShape2D_1i6c2")
 position = Vector2(710, 425)
 scale = Vector2(5, 5)
 zoom = Vector2(4.5, 4.5)
+limit_left = 0
+limit_top = 0
+limit_right = 640
+limit_bottom = 192
 editor_draw_limits = true
 
 [node name="PhantomCameraHost" type="Node" parent="Camera2D"]
@@ -320,7 +324,7 @@ anchor_bottom = 0.5
 offset_left = -142.0
 offset_top = -86.0
 offset_right = 142.0
-offset_bottom = 85.0
+offset_bottom = 108.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

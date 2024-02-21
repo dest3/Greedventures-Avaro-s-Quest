@@ -3,8 +3,8 @@ extends RigidBody2D
 #bolsa de avaro, aca van todos sus estados, para ser accedidos 
 
 const lines: Array[String]= [
-	"hola este es el primer test del sistemas de dialogo",
- 
+	"Revélate ante mi, sé que estas allí en las sombras puedo... oler tu ambición.",
+
 	  
 ]
 

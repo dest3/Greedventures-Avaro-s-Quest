@@ -102,7 +102,7 @@ animations = [{
 radius = 8.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ak6u6"]
-radius = 16.0
+radius = 40.05
 
 [node name="bolsa" type="RigidBody2D" groups=["bolsa"]]
 z_index = 1

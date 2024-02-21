@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4cwsuqe507vs"]
+
+[ext_resource type="Script" path="res://scripts/videos/video_intro.gd" id="1_oyb1f"]
+[ext_resource type="VideoStream" path="res://assets/video/Avaros Subtitulos.ogv" id="2_mtac3"]
+
+[node name="video Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oyb1f")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_mtac3")
+autoplay = true
+expand = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
